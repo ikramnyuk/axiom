@@ -1,0 +1,76 @@
+@import "./variables";
+@import "~bootstrap/scss/bootstrap";
+
+@font-face {
+	font-family: 'InterUI';
+    src: url('./assets/font/Inter-UI-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+	font-family: 'InterUI';
+    src: url('./assets/font/Inter-UI-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'InterUI', Arial, sans-serif;
+}
+
+body{
+    background-color: $primary_bg;
+}
+
+li{
+    list-style: none;
+}
+
+a{
+    text-decoration: none;
+}
+
+.main-container{
+    width: 100%;
+    max-width: 970px;
+    margin: 0 auto;
+}
+
+.main-btn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: $secondary_action;
+    border-radius: 3px;
+    color: $secondary_bg;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.page{
+    .section-header{
+        &.centered{
+            text-align: center;
+        }
+
+        .label{
+            font-size: 40px;
+            font-weight: 500;
+            line-height: 1.2;
+            color: $primary_text;
+
+        }
+
+        .description{
+            margin-top: 25px;
+            font-size: 16px;
+            line-height: 1.75;
+            color: $secondary_text;
+        }
+    }
+}
+

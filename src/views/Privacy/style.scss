@@ -1,0 +1,48 @@
+@import '../../variables';
+
+.privacy{
+    display: flex;
+    margin-top: 104px;
+    color: $primary_text;
+
+    .left{
+        width: 354px;
+        margin-right: 50px;
+
+        .label{
+            .date{
+                font-size: 14px;
+                line-height: 1.57;
+            }
+
+            .title{
+                font-size: 34px;
+                line-height: 1.41;
+            }
+        }
+    }
+
+    .right{
+        width: calc(100% - 404px);
+        .intro{
+            margin-top: 42px;
+            font-size: 12px;
+            line-height: 1.9;
+        }
+
+        .item{
+            margin-top: 55px;
+
+            .label{
+                font-size: 20px;
+                line-height: 1.8;
+            }
+
+            .content{
+                margin-top: 10px;
+                font-size: 12px;
+                line-height: 1.9;
+            }
+        }
+    }
+}

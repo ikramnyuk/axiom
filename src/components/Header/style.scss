@@ -1,0 +1,44 @@
+@import '../../variables';
+
+.main-header{
+    padding: 20px 0;
+    background-color: $secondary_bg;
+    
+    .main-header-wrap{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .menu{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        a{
+            margin-left: 30px;
+            color: $primary_text;
+            line-height: 1.36;
+            font-size: 11px;
+            font-weight: 500;
+            text-transform: uppercase;
+
+            &:first-child{
+                margin-left: 0;
+                margin-right: 70px;
+            }
+
+            img{
+                width: 170px;
+                height: auto;
+            }
+        }
+    }
+
+    .main-btn{
+        width: 113px;
+        height: 32px;
+        font-size: 11px;
+        line-height: 1.36;
+    }
+}
