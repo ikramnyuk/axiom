@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20" height="20" viewBox="0 0 20 20">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Прямоугольник_486" data-name="Прямоугольник 486" width="20" height="20" transform="translate(313 51)" fill="none" stroke="#707070" stroke-width="1"/>
+    </clipPath>
+  </defs>
+  <g id="Группа_масок_127" data-name="Группа масок 127" transform="translate(-313 -51)" clip-path="url(#clip-path)">
+    <g id="menu_hamburger" transform="translate(313 53.187)">
+      <path id="Icon_color" data-name="Icon color" d="M19.444,15.789H.556A.561.561,0,0,1,0,15.225V14.1a.561.561,0,0,1,.556-.564H19.444A.561.561,0,0,1,20,14.1v1.128A.561.561,0,0,1,19.444,15.789Zm0-6.767H.556A.561.561,0,0,1,0,8.458V7.33a.56.56,0,0,1,.556-.563H19.444A.56.56,0,0,1,20,7.33V8.458A.561.561,0,0,1,19.444,9.022Zm0-6.767H.556A.56.56,0,0,1,0,1.692V.564A.561.561,0,0,1,.556,0H19.444A.561.561,0,0,1,20,.564V1.692A.56.56,0,0,1,19.444,2.255Z" fill="#f6f6f6"/>
+    </g>
+  </g>
+</svg>

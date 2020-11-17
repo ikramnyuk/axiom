@@ -120,4 +120,12 @@
             }
         }
     }
+
+    .mobile-copyright{
+        display: none;
+        margin-top: 24px;
+        font-size: 8px;
+        line-height: 2.75;
+        color: $primary_text;
+    }
 }

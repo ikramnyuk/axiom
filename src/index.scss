@@ -74,3 +74,406 @@ a{
     }
 }
 
+@media(max-width: 1920px){
+    .page-section .slider .slide-part-wrap {
+        width: 100%;
+        margin: 0;
+        justify-content: center;
+
+        .slide-part{
+            margin: 0 20px;
+
+            img{
+                width: 100%;
+            }
+        }
+    }
+}
+
+@media(max-width: 1366px){
+    .page-section .slider .slide-part-wrap {
+        width: 100%;
+        margin: 0;
+        justify-content: center;
+
+        .slide-part{
+            margin: 0 20px;
+
+            &:nth-child(odd){
+                display: none;
+            }
+        }
+    }
+}
+
+@media(max-width: 1024px){    
+    .page{
+        padding: 0 20px;
+    }
+
+    .page-section{
+        padding-top: 60px;
+    }
+
+    .page-section.intro-section{
+        padding: 40px 0 120px;
+    }
+
+    .page-section.intro-section .home-intro{
+        flex-direction: column;
+    }
+
+    .page-section.intro-section .home-intro .left{
+        order: 2;
+        margin-top: 41px;
+    }
+
+    .page-section.intro-section .home-intro .right{
+        order: 1;
+        margin-left: 0;
+    }
+
+    .page-section.intro-section .home-intro .left .logo img{
+        width: 190px;
+    }
+
+    .page-section.intro-section .home-intro .left .subtitle{
+        font-size: 21px;
+        margin-top: 10px;
+    }
+
+    .page-section.intro-section .home-intro .left .description{
+        font-size: 14px;
+        margin-top: 10px;
+    }
+
+    .page-section.intro-section .home-intro .left .main-btn{
+        width: 180px;
+        height: 40px;
+    }
+
+    .page-section.intro-section .home-intro .right img{
+        width: 200px;
+    }
+
+    .page .section-header .label{
+        font-size: 20px;
+    }
+
+    .page .section-header .description{
+        font-size: 12px;
+        margin-top: 10px;
+    }
+
+    .page-section .slider{
+        margin-top: 20px;
+    }
+
+    .page-section .slider .carousel-indicators{
+        top: calc(100% + 10px);
+    }
+
+    .page-section .offer .item .offer-info .name{
+        font-size: 12px;
+    }
+
+    .page-section .offer .item .offer-info .description{
+        font-size: 10px;
+    }
+
+    .page-section .offer .offer-row{
+        flex-wrap: wrap;
+        margin-top: 0;
+
+        &:first-child{
+            margin-top: 0;
+        }
+    }
+
+    .page-section .offer .offer-row .item{
+        width: 100%;
+        margin-top: 30px;
+    }
+
+    .page-section .plans .plan-header{
+        margin-top: 10px;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        margin-bottom: 0;
+    }
+
+    .page-section .plans .plan-header .main-btn{
+        width: calc(50% - 15px);
+        margin-left: 0;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+
+    .page-section .plans .plan-body{
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    .page-section .plans .plan-body .plan{
+        width: calc(50% - 12.5px);
+        margin-left: 0;
+        margin-top: 10px;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .page-section .plans .plan-header .main-btn{
+        font-size: 10px;
+    }
+
+    .page-section .plans .plan-body .plan .memory{
+        font-size: 20px;
+    }
+
+    .page-section .plans .plan-body .plan .price{
+        font-size: 16px;
+        margin-top: 11px;
+    }
+
+    .page-section .plans .plan-body .plan .price .main-price{
+        font-size: 40px;
+    }
+
+    .page-section .plans .plan-body .plan .main-btn{
+        width: 115px;
+        height: 38px;
+        font-size: 10px;
+        margin-top: 3px;
+    }
+
+    .page-section .plans .plan-body .plan .memory-price{
+        font-size: 8px;
+        margin-top: 14px;
+    }
+
+    .page-section .plans .plan-benefits{
+        padding: 1px 0 14px;
+    }
+
+    .page-section .plans .plan-benefits{
+        margin-top: 13px;
+    }
+
+    .page-section .plans .plan-benefits .benefit{
+        width: 50%;
+    }
+
+    .page-section .plans .plan-benefits span{
+        font-size: 10px;
+    }
+
+    .page-section .clients div{
+        width: 60px;
+        margin: 0 4.5px;
+
+        img{
+            width: 100%;
+        }
+    }
+
+    .page-section .faq{
+        flex-wrap: wrap;
+    }
+
+    .page-section .faq .faq-column{
+        width: 100%;
+    }
+
+    .page-section .faq .item{
+        margin-top: 10px;
+    }
+
+    .page-section .faq .item .label span{
+        font-size: 10px;
+    }
+
+    .page-section .faq .item .content{
+        font-size: 9px;
+    }
+
+    .page-section .contact{
+        flex-wrap: wrap;
+    }
+
+    .page-section .contact .right{
+        max-width: 100%;
+        margin-left: 0;
+        margin-top: 40px;
+    } 
+
+    .main-footer{
+        margin-top: 60px;
+        padding: 30px 20px;
+    }
+
+    .main-footer .footer-wrap{
+        flex-wrap: wrap;
+    }
+
+    .main-footer .footer-col{
+        padding-left: 0!important;
+    }
+
+    .main-footer .mobile-copyright{
+        display: block;
+    }
+
+    .main-footer .footer-col .logo-col .copyright{
+        display: none;
+    }
+
+    .main-footer .footer-col:nth-child(1){
+        width: 100%;
+        margin-bottom: 25px;
+    }
+
+    .main-footer .footer-col .logo-col .logo{
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-end;
+
+        .subtitle{
+            margin-left: 10px;
+        }
+    }
+
+    .main-footer .footer-col .menu .label{
+        font-size: 10px;
+        margin-bottom: 0;
+    }
+
+    .main-footer .footer-col .menu .menu-col a{
+        font-size: 8px;
+        margin-top: 8px;
+    }
+
+    .main-footer .footer-col .social .links .label{
+        font-size: 10px;
+
+    }
+
+    .main-footer .footer-col .social .links + a{
+        font-size: 8px;
+        margin-top: 28px;
+    }
+
+    .main-footer .footer-col .social .links a img{
+        width: 12px;
+    }
+
+    .main-footer .footer-col .menu .menu-col{
+        margin-left: 35px;
+
+        &:nth-child(3){
+            margin-left: 35px;
+        }
+    }
+
+    .main-footer .footer-col:nth-child(2), .main-footer .footer-col:nth-child(1), .main-footer .footer-col:nth-child(3), .main-footer .footer-col .social{
+        min-width: auto;
+    }
+
+    .main-footer .footer-col .logo-col .logo img{
+        height: 24px;
+    }
+
+    .main-footer .footer-col .logo-col .logo .subtitle{
+        font-size: 10px;
+    }
+
+    .cookie-modal{
+        width: calc(100% - 40px);
+        left: 20px;
+    }
+
+    .cookie-modal .label{
+        font-size: 12px;
+    }
+
+    .cookie-modal .description{
+        font-size: 10px;
+    }
+
+    .cookie-modal .btn-wrap .main-btn{
+        font-size: 10px;
+        width: calc(50% - 9px);
+    }
+
+    .cookie-modal .btn-wrap{
+        margin-top: 10px;
+    }
+
+    .privacy{
+        flex-wrap: wrap;
+    }
+
+    .privacy .left{
+        width: 100%;
+    }
+
+    .privacy .right{
+        width: 100%;
+    }
+
+    .page-section .slider .carousel-indicators li{
+        width: 5px;
+        height: 5px;
+        margin: 0 12.5px;
+    }
+
+    .page-section .offer .item .icon{
+        height: 72px;
+    }
+
+    .page-section .plans .plan-body{
+        margin-top: 20px;
+    }
+
+    .page-section .plans .plan-header .main-btn{
+        height: 40px;
+        margin-bottom: 0;
+    }
+}
+
+@media(max-width: 768px){
+    .page-section .slider .slide-part-wrap {
+        margin-left: -20px;
+        justify-content: space-between;
+
+        .slide-part{
+            
+            img{
+                width: 240px;
+            }
+        }
+    }
+
+    .privacy{
+        margin-top: 80px;
+    }
+
+    .privacy .left .label .date{
+        font-size: 11px;
+    }
+
+    .privacy .left .label .title{
+        font-size: 27px;
+    }
+
+    .privacy .right .item {
+        margin-top: 40px;
+    }
+
+    .privacy .right .item .label{
+        font-size: 16px;
+    }
+
+    .privacy .right .item .content{
+        font-size: 10px;
+    }
+}

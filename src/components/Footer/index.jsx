@@ -56,6 +56,8 @@ export default class Header extends Component {
 						</div>
 					</div>
 				</div>
+
+				<div className="mobile-copyright">Copyright Axiom Technologies LLC © 2020</div>
 			</footer>
 		)
 	}

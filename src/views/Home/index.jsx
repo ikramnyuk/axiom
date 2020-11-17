@@ -38,7 +38,7 @@ export default class Home extends Component {
 				{
 					subPlans: [
 						{
-							memoty: '2GB',
+							memoty: '23GB',
 							price: '50',
 							priceDecimal: '.00',
 							memoryPrice: '$25.00 per gigabyte.'
@@ -50,7 +50,7 @@ export default class Home extends Component {
 							memoryPrice: '$22.50 per gigabyte.'
 						},
 						{
-							memoty: '10GB',
+							memoty: '1GB',
 							price: '200',
 							priceDecimal: '.00',
 							memoryPrice: '$20.00 per gigabyte.'
@@ -67,7 +67,7 @@ export default class Home extends Component {
 							memoryPrice: '$25.00 per gigabyte.'
 						},
 						{
-							memoty: '5GB',
+							memoty: '52GB',
 							price: '112',
 							priceDecimal: '.50',
 							memoryPrice: '$22.50 per gigabyte.'
@@ -84,13 +84,13 @@ export default class Home extends Component {
 				{
 					subPlans: [
 						{
-							memoty: '2GB',
+							memoty: '21GB',
 							price: '50',
 							priceDecimal: '.00',
 							memoryPrice: '$25.00 per gigabyte.'
 						},
 						{
-							memoty: '5GB',
+							memoty: '53GB',
 							price: '112',
 							priceDecimal: '.50',
 							memoryPrice: '$22.50 per gigabyte.'
@@ -345,11 +345,11 @@ export default class Home extends Component {
 						</div>
 
 						<div className="plan-body">
-							{this.state.plans[this.state.stateSelected].subPlans.map(item => 
-								<div className="plan">
+							{this.state.plans[this.state.stateSelected].subPlans.map((item, index) => 
+								<div className="plan" key={index}>
 									<div className="memory">{ item.memoty }</div>
 									<div className="price">
-										<div><span>$</span><span class="main-price">{ item.price }</span><span>{ item.priceDecimal }</span></div>
+										<div><span>$</span><span className="main-price">{ item.price }</span><span>{ item.priceDecimal }</span></div>
 									</div>
 
 									<div className="main-btn">PURCHASE</div>
@@ -359,8 +359,8 @@ export default class Home extends Component {
 						</div>
 
 						<div className="plan-benefits">
-							{this.state.plans[this.state.stateSelected].benefits.map(item => 
-								<div className="benefit">
+							{this.state.plans[this.state.stateSelected].benefits.map((item, index) => 
+								<div className="benefit" key={index}>
 									<img src="./assets/img/check.svg" alt=""/>
 									<span>{item}</span>
 								</div>
