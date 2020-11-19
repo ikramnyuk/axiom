@@ -25,12 +25,12 @@ export default class Header extends Component {
 								<img src="./assets/img/logo.svg" alt=""/>
 							</Link>
 
-							<Link to="home">ABOUT</Link>
-							<Link to="home">FEATURES</Link>
-							<Link to="home">PRODUCTS</Link>
-							<Link to="home">SITELIST</Link>
-							<Link to="home">FAQ</Link>
-							<Link to="home">CONTACT</Link>
+							<a href="#about">ABOUT</a>
+							<a href="#features">FEATURES</a>
+							<a href="#products">PRODUCTS</a>
+							<a href="#sitelist">SITELIST</a>
+							<a href="#faq">FAQ</a>
+							<a href="#contact">CONTACT</a>
 						</div>
 						
 						<div className="main-btn">Dashboard</div>
@@ -44,13 +44,17 @@ export default class Header extends Component {
 				<div className="mobile-nav-wrap" onClick={() => {this.toggleMobile(false)}}>
 					<div className={ this.state.mobile ? "active mobile-overlay" : "mobile-overlay"}></div>
 					<div className={ this.state.mobile ? "active mobile-nav" : "mobile-nav"}>
+						<Link to="home" className="logo-link">
+							<img src="./assets/img/mobile-logo.svg" alt=""/>
+						</Link>
+
 						<div className="menu">
-							<Link to="home">ABOUT</Link>
-							<Link to="home">FEATURES</Link>
-							<Link to="home">PRODUCTS</Link>
-							<Link to="home">SITELIST</Link>
-							<Link to="home">FAQ</Link>
-							<Link to="home">CONTACT</Link>
+							<a href="#about">ABOUT</a>
+							<a href="#features">FEATURES</a>
+							<a href="#products">PRODUCTS</a>
+							<a href="#sitelist">SITELIST</a>
+							<a href="#faq">FAQ</a>
+							<a href="#contact">CONTACT</a>
 						</div>
 
 						<div className="main-btn">Dashboard</div>

@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-import Carousel from 'react-bootstrap/Carousel' 
+import Slider from "react-slick";
 
 import './style.scss';
 
@@ -11,6 +11,31 @@ export default class Home extends Component {
 			stateSelected: 0,
 			faqIndex: '',
 			showCookie: true,
+			featuresAnimations: false,
+			productsAnimations: false,
+			faqAnimations: false,
+			contactAnimations: false,
+			settings: {
+				dots: true,
+				speed: 500,
+				slidesToShow: 4,
+				slidesToScroll: 1,
+				responsive: [
+					{
+						breakpoint: 1024,
+						settings: {
+							slidesToShow: 3
+						}
+					},
+
+					{
+						breakpoint: 768,
+						settings: {
+							slidesToShow: 2
+						}
+					}
+				]
+			},
 			plans: [
 				{
 					subPlans: [
@@ -108,6 +133,37 @@ export default class Home extends Component {
 		};
 	}
 
+	componentDidMount(){
+		let self = this;
+
+		window.addEventListener('scroll', function() {
+			let features = document.querySelector('#features'),
+				featuresPos = features.getBoundingClientRect(),
+				products = document.querySelector('#products'),
+				productsPos = products.getBoundingClientRect(),
+				faq = document.querySelector('#faq'),
+				faqPos = faq.getBoundingClientRect(),
+				contact = document.querySelector('#contact'),
+				contactPos = contact.getBoundingClientRect();
+		
+			if(featuresPos.top < 200) {
+				self.setState({featuresAnimations: true});
+			}
+
+			if(productsPos.top < 200) {
+				self.setState({productsAnimations: true});
+			}
+
+			if(faqPos.top < 200) {
+				self.setState({faqAnimations: true});
+			}
+
+			if(contactPos.top < 200) {
+				self.setState({contactAnimations: true});
+			}
+		})
+	}
+
 	setSelectedPlan(index){
 		this.setState({stateSelected: index});
 	}
@@ -146,104 +202,56 @@ export default class Home extends Component {
 					</div>
 				</div>
 
-				<div className="page-section">
+				<div id="about" className="page-section slider-page">
 					<div className="section-header main-container">
 						<div className="label">Welcome to Axiom's world.</div>
 						<div className="description">Axiom is serving up proxies that make the internet accessible while offering security, speed, and that something extra: Quality. <br/> It is what sets us apart, drives us ahead, and keeps us creating better ways of advancing our technology.</div>
 					</div>
 
 					<div className="slider">
-						<Carousel>
-							<Carousel.Item>
-								<div className="slide-part-wrap">
-									<div className="slide-part">
-										<img alt="" src="./assets/img/slide-1.svg" />
-									</div>
+						<Slider {...this.state.settings}>
+							<div className="slide-part">
+								<img alt="" src="./assets/img/slide-1.svg" />
+							</div>
 
-									<div className="slide-part">
-										<img alt="" src="./assets/img/slide-2.svg" />
-									</div>
+							<div className="slide-part">
+								<img alt="" src="./assets/img/slide-2.svg" />
+							</div>
 
-									<div className="slide-part">
-										<img alt="" src="./assets/img/slide-3.svg" />
-									</div>
+							<div className="slide-part">
+								<img alt="" src="./assets/img/slide-3.svg" />
+							</div>
 
-									<div className="slide-part">
-										<img alt="" src="./assets/img/slide-4.svg" />
-									</div>
-								</div>
-							</Carousel.Item>
+							<div className="slide-part">
+								<img alt="" src="./assets/img/slide-4.svg" />
+							</div>
 
-							<Carousel.Item>
-								<div className="slide-part-wrap">
-									<div className="slide-part">
-										<img alt="" src="./assets/img/slide-1.svg" />
-									</div>
+							<div className="slide-part">
+								<img alt="" src="./assets/img/slide-1.svg" />
+							</div>
 
-									<div className="slide-part">
-										<img alt="" src="./assets/img/slide-2.svg" />
-									</div>
+							<div className="slide-part">
+								<img alt="" src="./assets/img/slide-2.svg" />
+							</div>
 
-									<div className="slide-part">
-										<img alt="" src="./assets/img/slide-3.svg" />
-									</div>
+							<div className="slide-part">
+								<img alt="" src="./assets/img/slide-3.svg" />
+							</div>
 
-									<div className="slide-part">
-										<img alt="" src="./assets/img/slide-4.svg" />
-									</div>
-								</div>
-							</Carousel.Item>
-
-							<Carousel.Item>
-								<div className="slide-part-wrap">
-									<div className="slide-part">
-										<img alt="" src="./assets/img/slide-1.svg" />
-									</div>
-
-									<div className="slide-part">
-										<img alt="" src="./assets/img/slide-2.svg" />
-									</div>
-
-									<div className="slide-part">
-										<img alt="" src="./assets/img/slide-3.svg" />
-									</div>
-
-									<div className="slide-part">
-										<img alt="" src="./assets/img/slide-4.svg" />
-									</div>
-								</div>
-							</Carousel.Item>
-
-							<Carousel.Item>
-								<div className="slide-part-wrap">
-									<div className="slide-part">
-										<img alt="" src="./assets/img/slide-1.svg" />
-									</div>
-
-									<div className="slide-part">
-										<img alt="" src="./assets/img/slide-2.svg" />
-									</div>
-
-									<div className="slide-part">
-										<img alt="" src="./assets/img/slide-3.svg" />
-									</div>
-
-									<div className="slide-part">
-										<img alt="" src="./assets/img/slide-4.svg" />
-									</div>
-								</div>
-							</Carousel.Item>
-						</Carousel>
+							<div className="slide-part">
+								<img alt="" src="./assets/img/slide-4.svg" />
+							</div>
+						</Slider>
 					</div>
 				</div>
 
-				<div className="page-section main-container">
+				<div id="features" className="page-section main-container">
 					<div className="section-header ">
 						<div className="label">What we offer.</div>
 						<div className="description">We pride ourselves on having the best product possible so no corners are cut. <br /> With Axiom, you can trust that you are getting the best.</div>
 					</div>
 
-					<div className="offer">
+					<div className={this.state.featuresAnimations ? "animated offer" : "offer"}>
 						<div className="offer-row">
 							<div className="item">
 								<div className="icon">
@@ -330,13 +338,13 @@ export default class Home extends Component {
 					</div>
 				</div>
 
-				<div className="page-section main-container">
+				<div id="products" className="page-section main-container">
 					<div className="section-header centered">
 						<div className="label">The best selection available.</div>
 						<div className="description">Get to test the most successful proxy experience in the scene, thanks to our revolutionary pools. <br/> Insane speeds, unbanned on almost all sites, and instant delivery. Enjoy!</div>
 					</div>
 
-					<div className="plans">
+					<div className={this.state.productsAnimations ? "animated plans" : "plans"}>
 						<div className="plan-header">
 							<div onClick={() => {this.setSelectedPlan(0)}} className={this.state.stateSelected === 0 ? "active main-btn" : "main-btn"}>PRIVATE RESIDENTIALS</div>
 							<div onClick={() => {this.setSelectedPlan(1)}} className={this.state.stateSelected === 1 ? "active main-btn" : "main-btn"}>ISP DC PROXIES</div>
@@ -369,7 +377,7 @@ export default class Home extends Component {
 					</div>
 				</div>
 
-				<div className="page-section client-container">
+				<div id="sitelist" className="page-section client-container">
 					<div className="section-header centered">
 						<div className="label">Recklessly unbanned.</div>
 						<div className="description">Axiom helps you become superior than your competition by using site-specific filters. <br /> Approach every release with no fear of getting caught. We've got you covered.</div>
@@ -409,13 +417,13 @@ export default class Home extends Component {
 					</div>
 				</div>
             
-				<div className="page-section main-container faq-page">
+				<div id="faq" className="page-section main-container faq-page">
 					<div className="section-header ">
 						<div className="label">Frequently asked questions.</div>
 						<div className="description">If you are hesitating, do not worry - we are here to explain <br/> everything you might want to know. Let us help!</div>
 					</div>
 					
-					<div className="faq">
+					<div className={this.state.faqAnimations ? "animated faq" : "faq"}>
 						<div className="faq-column">
 							<div className={this.state.faqIndex === 0 ? "item open" : "item"}>
 								<div className="label" onClick={() => {this.setOpenFaq(0)}}>
@@ -427,7 +435,7 @@ export default class Home extends Component {
 								</div>
 
 								<div className="content">
-									Please log in to your proxy DASHBOARD and enter the IP you would like to authorize into the field labeled “Authorized IP.” If you’re unsure of your IP number, you can find your local IPv4 by Google-searching the question, “What is my IPv4?”.
+									Proxies allow you to protect your personal IP address in cases such as anonymous browsing, making purchases, viewing exclusive sporting events, web scraping… the list is endless, and we value your time. A proxy IP forwards the requested data to you, reducing the risk to your own IP address and to your private information.
 								</div>
 							</div>
 
@@ -441,7 +449,7 @@ export default class Home extends Component {
 								</div>
 
 								<div className="content">
-									Please log in to your proxy DASHBOARD and enter the IP you would like to authorize into the field labeled “Authorized IP.” If you’re unsure of your IP number, you can find your local IPv4 by Google-searching the question, “What is my IPv4?”.
+									Instant delivery! Our system is seamlessly integrated to ensure your proxies are delivered within moments of purchase.
 								</div>
 							</div>
 
@@ -455,7 +463,7 @@ export default class Home extends Component {
 								</div>
 
 								<div className="content">
-									Please log in to your proxy DASHBOARD and enter the IP you would like to authorize into the field labeled “Authorized IP.” If you’re unsure of your IP number, you can find your local IPv4 by Google-searching the question, “What is my IPv4?”.
+								Our proxies support IP AUTHORIZATION. This allows us to identify you correctly as an Axiom customer when conducting the delivery of proxies. If you need to authorize your IP, keep reading.
 								</div>
 							</div>
 						</div>
@@ -471,7 +479,7 @@ export default class Home extends Component {
 								</div>
 
 								<div className="content">
-									Please log in to your proxy DASHBOARD and enter the IP you would like to authorize into the field labeled “Authorized IP.” If you’re unsure of your IP number, you can find your local IPv4 by Google-searching the question, “What is my IPv4?”.
+									Please log in to your proxy DASHBOARD and enter the IP you would like to authorize into the field labeled “Authorized IP.” If you’re unsure of your IP number, you can find your local IPv4 by Google-searching the question, “What is my ipv4?”
 								</div>
 							</div>
 
@@ -485,7 +493,7 @@ export default class Home extends Component {
 								</div>
 
 								<div className="content">
-									Please log in to your proxy DASHBOARD and enter the IP you would like to authorize into the field labeled “Authorized IP.” If you’re unsure of your IP number, you can find your local IPv4 by Google-searching the question, “What is my IPv4?”.
+									We are dedicated to preserving the quality of our ISP DCs. For that reason, they are turned on fifteen minutes before major releases and turned off immediately afterward. If you wish to run for restocks, we encourage you to purchase either a data plan or a Premium DC package.
 								</div>
 							</div>
 
@@ -499,20 +507,20 @@ export default class Home extends Component {
 								</div>
 
 								<div className="content">
-									Please log in to your proxy DASHBOARD and enter the IP you would like to authorize into the field labeled “Authorized IP.” If you’re unsure of your IP number, you can find your local IPv4 by Google-searching the question, “What is my IPv4?”.
+									Please let us know if you have any questions when utilizing your proxies. While we do not refund purchases, we are always happy to offer support!
 								</div>
 							</div>
 						</div>
 					</div>
 				</div>
 			
-				<div className="page-section main-container">
+				<div id="contact" className="page-section main-container contact-section">
 					<div className="section-header ">
 						<div className="label">Have more questions?</div>
 						<div className="description">Do you still have some unanswered questions? Feel free to reach out to us.</div>
 					</div>
 
-					<div className="contact">
+					<div className={this.state.contactAnimations ? "animated contact" : "contact"}>
 						<div className="left">
 							<div className="input-row">
 								<input type="text" placeholder="Full Name" />

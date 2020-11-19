@@ -39,7 +39,8 @@
         width: 113px;
         height: 32px;
         font-size: 11px;
-        line-height: 1.36;
+        line-height: 2.36;
+        font-weight: bold;
     }
 
     .menu-btn{
@@ -94,36 +95,46 @@
 .mobile-nav{
     display: none;
     position: fixed;
-    width: 200px;
+    width: 325px;
     height: 100vh;
-    padding: 15px 20px;
+    padding: 20px;
     top: 0;
-    left: -250px;
-    background-color: $primary_text;
+    right: -400px;
+    text-align: right;
+    background-color: $secondary_action;
     z-index: 1000;
     transition: .3s;
 
     &.active{
-        left: 0px;
+        right: 0px;
     }
 
     a{
         display: block;
         margin-top: 15px;
-        color: $primary_text;
-        line-height: 1.36;
-        font-size: 14px;
-        font-weight: 500;
-        text-transform: uppercase;
-        color: $secondary_bg;
+        color: $primary_bg!important;
+        line-height: 1.5;
+        font-size: 16px;
+        font-family: 'InterUIMedium';
+    }
+
+    .logo-link{
+        img{
+            width: 127px;
+        }
+    }
+
+    .menu{
+        margin: 165px 0 160px;
     }
 
     .main-btn{
         width: 113px;
         height: 32px;
-        margin-top: 20px;
+        margin-left: auto;
+        background-color: $secondary_bg;
         font-size: 11px;
-        line-height: 1.36;
+        color: $secondary_text;
     }
 
     @media(max-width: 1024px){

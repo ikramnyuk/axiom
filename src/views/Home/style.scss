@@ -14,6 +14,8 @@
 
             .left{
                 max-width: 561px;
+                animation-duration: 1s;
+                animation-name: fadeInDown;
 
                 .logo{
                     img{
@@ -42,13 +44,14 @@
                     margin-top: 20px;
                     font-size: 12px;
                     line-height: 1.5;
-                    font-weight: 500;
                     color: $secondary_bg;
                 }
             }
 
             .right{
                 margin-left: 142px;
+                animation-duration: 2s;
+                animation-name: fadeInDown;
 
                 img{
                     width: 267px;
@@ -60,35 +63,82 @@
 
     .slider{
         position: relative;
-        margin-top: 45px;
         padding-bottom: 60px;
+        margin: 45px -70px 0;
+        
+        @media(max-width: 1024px){
+            margin-left: -10px;
+            margin-right: -100px;
+        }
 
-        .slide-part-wrap{
-            width: calc(100% + 70px);
+        .slick-track{
             display: flex;
-            justify-content: space-between;
-            margin: 0 -35px;
+
+            &:after, &:before{
+                display: none;
+            }
         }
 
-        .carousel-control-prev, .carousel-control-next{
-            display: none;
+        .slick-slide{
+            float: none;
+            margin: 0 25px;
+
+            @media(min-width: 1920px){
+                width: 460px!important;
+            }
+
+            @media(max-width: 1024px){
+                width: 240px!important;
+                margin: 0 10px;
+            }
+
+            img{
+                width: 100%;
+            }
         }
 
-        .carousel-indicators{
+        .slick-dots{
+            display: flex!important;
+            justify-content: center;
             position: absolute;
             bottom: auto;
             top: calc(100% + 40px);
 
             li{
+                width: auto;
+                height: auto;
+                margin: 0 25px;
+
+                @media(max-width: 1024px){
+                    margin: 0 15px;
+                }
+            }
+
+            .slick-active button{
+                background-color: $secondary_action;
+            }
+
+            button{
                 width: 10px;
                 height: 10px;
-                margin: 0 25px;
                 background-color: $actions_gray;
                 border-radius: 50%;
 
-                &.active{
-                    background-color: $secondary_action;
+                @media(max-width: 1024px){
+                    width: 5px;
+                    height: 5px;
+                    padding: 0;
                 }
+
+                &:before{
+                    display: none;
+                }
+            }
+
+            @media(max-width: 1024px){
+                width: 100vw;
+                top: calc(100% + 15px);
+                left: -20px;
             }
         }
     }
@@ -106,7 +156,8 @@
 
         .item{
             display: flex;
-
+            opacity: 0;
+            
             &:first-child{
                 margin-left: 0;
             }
@@ -140,12 +191,71 @@
                 }
             }
         }
+
+        &.animated{
+            .offer-row{
+                &:nth-child(1){
+                    .item{
+                        opacity: 1;
+        
+                        &:nth-child(1){
+                            animation-duration: 0.9s;
+                            animation-name: fadeInUp;
+                            animation-fill-mode: both;
+                        }
+            
+                        &:nth-child(2){
+                            animation-duration: 1.2s;
+                            animation-name: fadeInUp;
+                            animation-fill-mode: both;
+                        }
+                    }
+                }
+
+                &:nth-child(2){
+                    .item{
+                        opacity: 1;
+        
+                        &:nth-child(1){
+                            animation-duration: 1.5s;
+                            animation-name: fadeInUp;
+                            animation-fill-mode: both;
+                        }
+            
+                        &:nth-child(2){
+                            animation-duration: 1.8s;
+                            animation-name: fadeInUp;
+                            animation-fill-mode: both;
+                        }
+                    }
+                }
+
+                &:nth-child(3){
+                    .item{
+                        opacity: 1;
+        
+                        &:nth-child(1){
+                            animation-duration: 2.1s;
+                            animation-name: fadeInUp;
+                            animation-fill-mode: both;
+                        }
+            
+                        &:nth-child(2){
+                            animation-duration: 2.4s;
+                            animation-name: fadeInUp;
+                            animation-fill-mode: both;
+                        }
+                    }
+                }
+            }
+        }
     }
 
     .plans{
         .plan-header{
             display: flex;
             margin: 25px 0 30px;
+            opacity: 0;
 
             .main-btn{
                 width: 220px;
@@ -153,18 +263,25 @@
                 margin-left: 30px;
                 background-color: $secondary_bg;
                 font-size: 16px;
-                font-weight: 500;
                 line-height: 1.5;
                 color: $secondary_text;
 
                 &.active{
                     background-color: $secondary_action;
+                    color: $secondary_bg;
                 }
 
                 &:first-child{
                     margin-left: 0;
                 }
             }
+        }
+
+        &.animated .plan-header{
+            opacity: 1;
+            animation-duration: 1s;
+            animation-name: fadeInUp;
+            animation-fill-mode: both;
         }
 
         .plan-body{
@@ -176,6 +293,7 @@
                 padding: 15px 0 25px;
                 text-align: center;
                 background-color: $secondary_bg;
+                opacity: 0;
 
                 &:first-child{
                     margin-left: 0;
@@ -213,7 +331,6 @@
                     height: 45px;
                     margin: 10px auto 0;
                     font-size: 16px;
-                    font-weight: 500;
                     line-height: 1.25;
                     color: $secondary_bg;
                 }
@@ -226,6 +343,28 @@
                 }
             }
         }
+        
+        &.animated .plan-body .plan{
+            opacity: 1;
+        }
+
+        &.animated .plan-body .plan:nth-child(1){
+            animation-duration: 1.3s;
+            animation-name: fadeInUp;
+            animation-fill-mode: both;
+        }
+
+        &.animated .plan-body .plan:nth-child(2){
+            animation-duration: 1.6s;
+            animation-name: fadeInUp;
+            animation-fill-mode: both;
+        }
+
+        &.animated .plan-body .plan:nth-child(3){
+            animation-duration: 1.9s;
+            animation-name: fadeInUp;
+            animation-fill-mode: both;
+        }
 
         .plan-benefits{
             margin-top: 30px;
@@ -234,6 +373,7 @@
             border-radius: 3px;
             background-color: $secondary_bg;
             border: 1px solid $secondary_action;
+            opacity: 0;
 
             .benefit{
                 display: inline-flex;
@@ -250,6 +390,13 @@
                 line-height: 1.43;
                 color: $secondary_text;
             }
+        }
+
+        &.animated .plan-benefits{
+            opacity: 1;
+            animation-duration: 2.5s;
+            animation-name: fadeInUp;
+            animation-fill-mode: both;
         }
     }
 
@@ -284,6 +431,7 @@
             background-color: $secondary_bg;
             overflow-y: hidden;
             transition: .3s;
+            opacity: 0;
 
             &.open{
                 height: 155px; 
@@ -316,15 +464,60 @@
                 
             }
         }
+
+        &.animated .item{
+            opacity: 1;
+        }
+
+        &.animated .faq-column:nth-child(1){
+            .item:nth-child(1){
+                animation-duration: 1.5s;
+                animation-name: fadeInRight;
+                animation-fill-mode: both;
+            }
+
+            .item:nth-child(2){
+                animation-duration: 2.5s;
+                animation-name: fadeInRight;
+                animation-fill-mode: both;
+            }
+
+            .item:nth-child(3){
+                animation-duration: 1.5s;
+                animation-name: fadeInRight;
+                animation-fill-mode: both;
+            }
+        }
+
+        &.animated .faq-column:nth-child(2){
+            .item:nth-child(1){
+                animation-duration: 1.5s;
+                animation-name: fadeInLeft;
+                animation-fill-mode: both;
+            }
+
+            .item:nth-child(2){
+                animation-duration: 2.5s;
+                animation-name: fadeInLeft;
+                animation-fill-mode: both;
+            }
+
+            .item:nth-child(3){
+                animation-duration: 1.5s;
+                animation-name: fadeInLeft;
+                animation-fill-mode: both;
+            }
+        }
     }
 
     .contact{
         display: flex;
-        margin-top: 35px;
+        margin-top: 37px;
 
         .left{
             width: 100%;
             max-width: 510px;
+            opacity: 0;
 
             .input-row{
                 display: flex;
@@ -332,7 +525,7 @@
             }
 
             textarea, input{
-                padding: 12px 16px 12px;
+                padding: 11px 16px 12px;
                 font-size: 14px;
                 line-height: 1.71;
                 color: $secondary_text;
@@ -344,7 +537,7 @@
             textarea{
                 width: 100%;
                 height: 95px;
-                margin: 27px 0 22px;
+                margin: 28px 0 24px;
             }
 
             input{
@@ -359,7 +552,6 @@
                 justify-content: center;
                 line-height: 1.5;
                 font-size: 16px;
-                font-weight: 50;
                 color: $text_gray;
             }
         }
@@ -371,6 +563,7 @@
             padding: 20px 25px 23px;
             border-radius: 3px;
             background-color: $secondary_bg;
+            opacity: 0;
 
             .label{
                 font-size: 24px;
@@ -393,14 +586,51 @@
                 margin-top: 98px;
                 
                 a{
-                    margin-left: 15px;
+                    margin-left: 11px;
 
                     &:first-child{
                         margin-left: 0;
+
+                        img{
+                            height: 18px;
+                        }
+                    }
+
+                    img{
+                        height: 24px;
+                        width: auto;
                     }
                 }
             }
         }
+
+        &.animated{
+            .left, .right{
+                opacity: 1;
+            }
+
+            .left{
+                animation-duration: 1.5s;
+                animation-name: fadeInUp;
+                animation-fill-mode: both;
+            }
+
+            .right{
+                animation-duration: 2.5s;
+                animation-name: fadeInUp;
+                animation-fill-mode: both;
+            }
+        }
+    }
+}
+
+.slider-page{
+    overflow: hidden;
+}
+
+.contact-section{
+    .section-header .description{
+        margin-top: 22px!important;
     }
 }
 
@@ -447,7 +677,6 @@
             width: calc(50% - 15px);
             height: 32px;
             font-size: 11px;
-            font-weight: bold;
             text-transform: uppercase;
 
             &:first-child{
