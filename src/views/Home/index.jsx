@@ -193,7 +193,7 @@ export default class Home extends Component {
 							<div className="subtitle">Technology built on excellence.</div>
 							<div className="description">Axiom reigns supreme when compared to our competitors. <br/> We put in the time and have the products to prove it.</div>
 						
-							<div className="main-btn">LEARN MORE</div>
+							<a href="#about"><div className="main-btn">LEARN MORE</div></a>
 						</div>
 
 						<div className="right">
