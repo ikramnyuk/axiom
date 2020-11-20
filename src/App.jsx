@@ -12,7 +12,7 @@ class App extends Component {
 
 		return (
 			<div className="App">
-				<Header/>
+				<Header history={history}/>
 				
 				<div className="main-wrap">
 					<Switch>

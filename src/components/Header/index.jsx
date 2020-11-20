@@ -1,5 +1,6 @@
-import React, { Component } from 'react'
-import { Link } from "react-router-dom";
+import React, { Component } from 'react';
+import { HashLink as Link } from 'react-router-hash-link';
+
 import './style.scss';
 
 export default class Header extends Component {
@@ -25,14 +26,14 @@ export default class Header extends Component {
 								<img src="./assets/img/logo.svg" alt=""/>
 							</Link>
 
-							<a href="#about">ABOUT</a>
-							<a href="#features">FEATURES</a>
-							<a href="#products">PRODUCTS</a>
-							<a href="#sitelist">SITELIST</a>
-							<a href="#faq">FAQ</a>
-							<a href="#contact">CONTACT</a>
+							<Link to="home#about">ABOUT</Link>
+							<Link to="home#features">FEATURES</Link>
+							<Link to="home#products">PRODUCTS</Link>
+							<Link to="home#sitelist">SITELIST</Link>
+							<Link to="home#faq">FAQ</Link>
+							<Link to="home#contact">CONTACT</Link>
 						</div>
-						
+
 						<div className="main-btn">Dashboard</div>
 
 						<div className="menu-btn" onClick={() => {this.toggleMobile(true)}}>
@@ -49,12 +50,12 @@ export default class Header extends Component {
 						</Link>
 
 						<div className="menu">
-							<a href="#about">ABOUT</a>
-							<a href="#features">FEATURES</a>
-							<a href="#products">PRODUCTS</a>
-							<a href="#sitelist">SITELIST</a>
-							<a href="#faq">FAQ</a>
-							<a href="#contact">CONTACT</a>
+							<Link to="home#about">ABOUT</Link>
+							<Link to="home#features">FEATURES</Link>
+							<Link to="home#products">PRODUCTS</Link>
+							<Link to="home#sitelist">SITELIST</Link>
+							<Link to="home#faq">FAQ</Link>
+							<Link to="home#contact">CONTACT</Link>
 						</div>
 
 						<div className="main-btn">Dashboard</div>

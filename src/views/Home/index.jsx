@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Redirect } from "react-router-dom";
+import { HashLink as Link } from 'react-router-hash-link';
 import Slider from "react-slick";
 
 import './style.scss';
@@ -574,7 +574,7 @@ export default class Home extends Component {
 					<div className="description">By using this website, you automatically accept that we use cookies.</div>
 
 					<div className="btn-wrap">
-						<a href="/privacy" className="main-btn">MORE INFO</a>
+						<Link to="privacy" className="main-btn">MORE INFO</Link>
 						<div className="main-btn" onClick={() => {this.hideCookie()}}>ACCEPT</div>
 					</div>
 				</div> : ''}
