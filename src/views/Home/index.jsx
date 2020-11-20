@@ -145,7 +145,7 @@ export default class Home extends Component {
 			if(features){
 				let featuresPos = features.getBoundingClientRect();
 
-				if(featuresPos.top < 200) {
+				if(featuresPos.top < 200 || featuresPos.bottom <= window.innerHeight) {
 					self.setState({featuresAnimations: true});
 				}
 			}
@@ -153,7 +153,7 @@ export default class Home extends Component {
 			if(products){
 				let productsPos = products.getBoundingClientRect();
 
-				if(productsPos.top < 200) {
+				if(productsPos.top < 200 || productsPos.bottom <= window.innerHeight) {
 					self.setState({productsAnimations: true});
 				}
 			}
@@ -161,7 +161,7 @@ export default class Home extends Component {
 			if(faq){
 				let faqPos = faq.getBoundingClientRect();
 
-				if(faqPos.top < 300) {
+				if(faqPos.top < 300 || faqPos.bottom <= window.innerHeight) {
 					self.setState({faqAnimations: true});
 				}
 			}
@@ -169,7 +169,7 @@ export default class Home extends Component {
 			if(contact){
 				let contactPos = contact.getBoundingClientRect();
 
-				if(contactPos.top < 200) {
+				if(contactPos.top < 200 || contactPos.bottom <= window.innerHeight) {
 					self.setState({contactAnimations: true});
 				}
 			}
