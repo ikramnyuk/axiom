@@ -3,6 +3,21 @@ import { Link } from "react-router-dom";
 import './style.scss';
 
 export default class Header extends Component {
+
+	constructor(props) {
+		super(props);
+		this.state = {
+			privacyPage: false
+		};
+	}
+
+	componentDidMount(){
+		console.log(this.props.history.location.pathname);
+		if(this.props.history.location.pathname === '/privacy'){
+			this.setState({privacyPage: true});
+		}
+	}
+
 	render () {
 		return (
 			<footer className="main-footer">
@@ -21,23 +36,41 @@ export default class Header extends Component {
 						<div className="menu">
 							<div className="label">Menu</div>
 
-							<div className="menu-container">
+							{!this.state.privacyPage ? <div className="menu-container">
 								<div className="menu-col">
-									<Link to="home">About</Link>
-									<Link to="home">Features</Link>
-									<Link to="home">Products</Link>
+									<a href="#about">About</a>
+									<a href="#features">Features</a>
+									<a href="#products">Products</a>
 								</div>
 								<div className="menu-col">
-									<Link to="home">Sitelist</Link>
-									<Link to="home">FAQ</Link>
-									<Link to="home">Contact</Link>
+									<a href="#sitelist">Sitelist</a>
+									<a href="#faq">FAQ</a>
+									<a href="#contact">Contact</a>
+								</div>
+								<div className="menu-col">
+									<Link to="home">Dashboard</Link>
+									<a href="/privacy">Privacy Policy</a>
+									<Link to="home">Refund Policy</Link>
+								</div>
+							</div> : ''}
+
+							{this.state.privacyPage ? <div className="menu-container">
+								<div className="menu-col">
+									<a href="/home?target=aboutabout">About</a>
+									<a href="/home?target=features">Features</a>
+									<a href="/home?target=products">Products</a>
+								</div>
+								<div className="menu-col">
+									<a href="/home?target=sitelist">Sitelist</a>
+									<a href="/home?target=faq">FAQ</a>
+									<a href="/home?target=contact">Contact</a>
 								</div>
 								<div className="menu-col">
 									<Link to="home">Dashboard</Link>
 									<Link to="/privacy">Privacy Policy</Link>
 									<Link to="home">Refund Policy</Link>
 								</div>
-							</div>
+							</div> : ''}
 						</div>
 					</div>
 					<div className="footer-col">

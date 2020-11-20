@@ -22,7 +22,7 @@ class App extends Component {
 					</Switch>
 				</div>
 
-				<Footer/>
+				<Footer history={history}/>
 			</div>
 		);
 	}

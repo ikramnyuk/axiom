@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-
+import { Redirect } from "react-router-dom";
 import Slider from "react-slick";
 
 import './style.scss';
@@ -138,30 +138,48 @@ export default class Home extends Component {
 
 		window.addEventListener('scroll', function() {
 			let features = document.querySelector('#features'),
-				featuresPos = features.getBoundingClientRect(),
 				products = document.querySelector('#products'),
-				productsPos = products.getBoundingClientRect(),
 				faq = document.querySelector('#faq'),
-				faqPos = faq.getBoundingClientRect(),
-				contact = document.querySelector('#contact'),
-				contactPos = contact.getBoundingClientRect();
-		
-			if(featuresPos.top < 200) {
-				self.setState({featuresAnimations: true});
+				contact = document.querySelector('#contact');
+			
+			if(features){
+				let featuresPos = features.getBoundingClientRect();
+
+				if(featuresPos.top < 200) {
+					self.setState({featuresAnimations: true});
+				}
 			}
 
-			if(productsPos.top < 200) {
-				self.setState({productsAnimations: true});
+			if(products){
+				let productsPos = products.getBoundingClientRect();
+
+				if(productsPos.top < 200) {
+					self.setState({productsAnimations: true});
+				}
 			}
 
-			if(faqPos.top < 300) {
-				self.setState({faqAnimations: true});
+			if(faq){
+				let faqPos = faq.getBoundingClientRect();
+
+				if(faqPos.top < 300) {
+					self.setState({faqAnimations: true});
+				}
 			}
 
-			if(contactPos.top < 200) {
-				self.setState({contactAnimations: true});
+			if(contact){
+				let contactPos = contact.getBoundingClientRect();
+
+				if(contactPos.top < 200) {
+					self.setState({contactAnimations: true});
+				}
 			}
-		})
+		});
+
+		if(this.props.history.location.search){
+			let traget = this.props.history.location.search.split('=')[1];
+
+			window.location.hash = "#" + traget;
+		}
 	}
 
 	setSelectedPlan(index){
@@ -556,7 +574,7 @@ export default class Home extends Component {
 					<div className="description">By using this website, you automatically accept that we use cookies.</div>
 
 					<div className="btn-wrap">
-						<div className="main-btn">MORE INFO</div>
+						<a href="/privacy" className="main-btn">MORE INFO</a>
 						<div className="main-btn" onClick={() => {this.hideCookie()}}>ACCEPT</div>
 					</div>
 				</div> : ''}
