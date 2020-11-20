@@ -154,7 +154,7 @@ export default class Home extends Component {
 				self.setState({productsAnimations: true});
 			}
 
-			if(faqPos.top < 200) {
+			if(faqPos.top < 300) {
 				self.setState({faqAnimations: true});
 			}
 

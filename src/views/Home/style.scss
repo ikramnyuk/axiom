@@ -68,7 +68,8 @@
         
         @media(max-width: 1024px){
             margin-left: -10px;
-            margin-right: -100px;
+            margin-right: -10px;
+            padding-bottom: 25px;
         }
 
         .slick-track{
@@ -471,10 +472,10 @@
                     height: 173px;
 
                     @media(max-width: 1024px){
-                        height: 121px;
+                        height: 152px;
                     }
                 }
-                animation-duration: 1.5s;
+                animation-duration: 1s;
                 animation-name: fadeInRight;
                 animation-fill-mode: both;
             }
@@ -484,10 +485,10 @@
                     height: 113px;
 
                     @media(max-width: 1024px){
-                        height: 86px;
+                        height: 106px;
                     }
                 }
-                animation-duration: 2.5s;
+                animation-duration: 1.5s;
                 animation-name: fadeInRight;
                 animation-fill-mode: both;
             }
@@ -497,10 +498,10 @@
                     height: 133px;
 
                     @media(max-width: 1024px){
-                        height: 103px;
+                        height: 120px;
                     }
                 }
-                animation-duration: 1.5s;
+                animation-duration: 1s;
                 animation-name: fadeInRight;
                 animation-fill-mode: both;
             }
@@ -512,10 +513,10 @@
                     height: 153px;
 
                     @media(max-width: 1024px){
-                        height: 103px;
+                        height: 136px;
                     }
                 }
-                animation-duration: 1.5s;
+                animation-duration: 1s;
                 animation-name: fadeInLeft;
                 animation-fill-mode: both;
             }
@@ -525,10 +526,10 @@
                     height: 153px;
 
                     @media(max-width: 1024px){
-                        height: 117px;
+                        height: 138px;
                     }
                 }
-                animation-duration: 2.5s;
+                animation-duration: 1.5s;
                 animation-name: fadeInLeft;
                 animation-fill-mode: both;
             }
@@ -538,10 +539,10 @@
                     height: 113px;
 
                     @media(max-width: 1024px){
-                        height: 103px;
+                        height: 105px;
                     }
                 }
-                animation-duration: 1.5s;
+                animation-duration: 1s;
                 animation-name: fadeInLeft;
                 animation-fill-mode: both;
             }
