@@ -5,6 +5,7 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import Home from './views/Home';
 import Privacy from './views/Privacy';
+import Refund from './views/Refund';
 
 class App extends Component {
 	render() {
@@ -12,14 +13,17 @@ class App extends Component {
 
 		return (
 			<div className="App">
-				<Header history={history}/>
-				
-				<div className="main-wrap">
-					<Switch>
-						<Route history={history} path='/home' component={Home} />
-						<Route history={history} path='/privacy' component={Privacy} />
-						<Redirect from='/' to='/home'/>
-					</Switch>
+				<div>
+					<Header history={history}/>
+					
+					<div className="main-wrap">
+						<Switch>
+							<Route history={history} path='/home' component={Home} />
+							<Route history={history} path='/privacy' component={Privacy} />
+							<Route history={history} path='/refund' component={Refund} />
+							<Redirect from='/' to='/home'/>
+						</Switch>
+					</div>
 				</div>
 
 				<Footer history={history}/>
