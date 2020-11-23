@@ -36,7 +36,7 @@ export default class Header extends Component {
 								<div className="menu-col">
 									<Link to="home">Dashboard</Link>
 									<Link to="privacy">Privacy Policy</Link>
-									<Link to="home">Refund Policy</Link>
+									<Link to="refund">Refund Policy</Link>
 								</div>
 							</div>
 						</div>
