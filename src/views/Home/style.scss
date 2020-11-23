@@ -571,6 +571,12 @@
                 border: 1px solid $border_primary;
                 border-radius: 3px;
                 background-color: $actions_gray;
+                box-shadow: none;
+                outline: none;
+
+                &:focus{
+                    border-color: $secondary_action;
+                }
             }
 
             textarea{
