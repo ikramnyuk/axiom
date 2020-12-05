@@ -1,0 +1,56 @@
+@import '../../variables';
+
+.main-header.dashboard{
+    .menu a{
+        margin-left: 32px;
+
+        &:first-child{
+            margin-right: 206px;
+            margin-left: 0;
+        }
+    }
+
+    .user-right{
+        display: flex;
+        align-items: center;
+        padding-right: 7px;
+        left: 2px;
+        position: relative;
+    }
+
+    .notifications{
+        padding-right: 16px;
+    }
+
+    .settings{
+        padding: 0 15px;
+    }
+
+    .notifications, .settings{
+        position: relative;
+
+        img{
+            height: 16px;
+            width: auto;
+        }
+
+        &:after{
+            content: '';
+            height: 20px;
+            position: absolute;
+            right: 0;
+            top: 2px;
+            border-left: solid 1px $secondary_text;
+        }
+    }
+
+    .user-avatar{
+        display: flex;
+        align-items: center;
+        padding-left: 15px;
+
+        .avatar-menu{
+            margin-left: 5px;
+        }
+    }
+}

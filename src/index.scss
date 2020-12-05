@@ -59,6 +59,12 @@ a{
     margin: 0 auto;
 }
 
+.dashboard-container{
+    width: 100%;
+    max-width: 1160px;
+    margin: 0 auto;
+}
+
 .main-btn{
     display: flex;
     align-items: center;
@@ -71,6 +77,13 @@ a{
     font-family: 'InterUIMedium';
 
     span{
+        color: $secondary_bg;
+        text-transform: uppercase;
+        cursor: pointer;
+        font-family: 'InterUIMedium';
+    }
+
+    a{
         color: $secondary_bg;
         text-transform: uppercase;
         cursor: pointer;
@@ -98,6 +111,101 @@ a{
             line-height: 1.75;
             color: $secondary_text;
         }
+    }
+}
+
+.main-block{
+    margin-top: 31px;
+    padding: 26px 32px 32px;
+    background-color: $text_gray;
+
+    .label{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 14px;
+        font-size: 20px;
+        line-height: 1.4;
+        color: $secondary_text;
+        font-weight: normal;
+
+        .custom-tooltip{
+            font-size: 12px;
+            line-height: 1.67;
+            color: #4b4c55;
+        }
+
+        .status{
+            position: relative;
+            top: 3px;
+            line-height: 1.82;
+            font-size: 11px;
+            text-transform: uppercase;
+            color: $secondary_action;
+            font-weight: 700;
+
+            &:before{
+                content: '';
+                width: 5px;
+                height: 5px;
+                position: absolute;
+                top: 50%;
+                left: -10px;
+                transform: translateY(-50%);
+                border-radius: 50%;
+                background-color: $secondary_action;
+            }
+        }
+    }
+
+    .sublabel{
+        margin-top: -4px;
+        font-size: 12px;
+        line-height: 1.67;
+        color: $secondary_text;
+    }
+}
+
+.dashboard .main-btn{
+    position: relative;
+    font-family: "InterUIMedium";
+    background-color: $actions_gray;
+    font-size: 12px;
+    line-height: 1.5;
+    color: $secondary_text;
+    transition: .3s;
+
+    &.hover{
+        color: $secondary_text;
+        background-color: $actions_gray;
+
+        &:hover{
+            color: $secondary_bg;
+            background-color: $secondary_action;
+        }
+    }
+
+    &.active{
+        color: $secondary_bg;
+        background-color: $secondary_action;
+    }
+
+    &.error{
+        color: $text_gray;
+        background-color: $main_error;
+    }
+
+    span{
+        color: inherit;
+        font-size: inherit;
+        font-family: inherit;
+        font-weight: inherit;
+    }
+
+    img{
+        position: absolute;
+        top: 15px;
+        right: 12px;
     }
 }
 

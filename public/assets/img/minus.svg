@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="16" height="16" viewBox="0 0 16 16">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Прямоугольник_54" data-name="Прямоугольник 54" width="16" height="16" transform="translate(374 586)" fill="none" stroke="#707070" stroke-width="1"/>
+    </clipPath>
+  </defs>
+  <g id="Группа_масок_18" data-name="Группа масок 18" transform="translate(-374 -586)" clip-path="url(#clip-path)">
+    <g id="remove" transform="translate(379 593.55)">
+      <path id="Icon_color" data-name="Icon color" d="M.214.858A.214.214,0,0,1,0,.643V.214A.214.214,0,0,1,.214,0H5.789A.214.214,0,0,1,6,.214V.643a.214.214,0,0,1-.214.214Z" fill="#f6f6f6"/>
+    </g>
+  </g>
+</svg>

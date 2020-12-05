@@ -1,0 +1,49 @@
+@import '../../variables';
+
+.plans-container{
+    .plan{
+        display: flex;
+        align-items: flex-end;
+        margin-top: 14px;
+
+        &:first-child{
+            margin-top: 0;
+        }
+
+        .plan-cell{
+            width: 100%;
+            max-width: 146px;
+
+            .header{
+                margin-bottom: 7px;
+                font-size: 11px;
+                line-height: 1.82;
+                font-weight: 700;
+                color: $secondary_text;
+            }
+
+            .body{
+                padding: 14px 16px 13px;
+                background-color: $actions_gray;
+                border-left: 1px solid $border_primary;
+                font-size: 12px;
+                line-height: 1.5;
+                font-family: "InterUIMedium";
+                color: $secondary_text;
+            }
+
+            &:first-child .body{
+                border-left: none;
+            }
+        }
+
+        .plan-btn{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 52px;
+            height: 45px;
+            margin-left: 30px;
+        }
+    }
+}

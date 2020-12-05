@@ -1,0 +1,105 @@
+@import '../../../variables';
+
+.dashboard{
+    .page.home{
+        display: flex;
+    
+        .left{
+            width: 400px;
+        }
+    
+        .right{
+            width: calc(100% - 430px);
+            margin-left: 30px;
+        }
+    }
+
+    .user-details{
+        display: flex;
+
+        .avatar{
+            padding-top: 2px;
+
+            img{
+                width: 120px;
+                height: 120px;
+            }
+        }
+
+        .info{
+            width: 100%;
+            margin-left: 14px;
+
+            .welcome{
+                font-weight: 700;
+                font-size: 11px;
+                line-height: 1.8;
+                color: $secondary_text;
+                text-transform: uppercase;
+            }
+
+            .name{
+                font-size: 30px;
+                line-height: 1.4;
+                color: $secondary_text;
+            }
+
+            .invite{
+                width: 100%;
+                height: 45px;
+                margin-top: 17px;
+            }
+        }
+    }
+
+    .realeses{
+        .item{
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 26px;
+            padding: 16.5px 16px 16px;
+            border-radius: 3px;
+            background-color: $actions_gray;
+
+            &.end{
+                align-items: flex-end;
+            }
+
+            &:last-child{
+                margin-bottom: 0;
+            }
+
+            img{
+                width: 90px;
+                height: auto;
+            }
+            
+            .details{
+                margin-left: 14px;
+            }
+
+            .header{
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding-bottom: 7px;
+                border-bottom: 1px solid $secondary_text;
+
+                .name, .date{
+                    font-size: 10px;
+                    line-height: 1.4;
+                    color: $secondary_text;
+                }
+            }
+
+            .description{
+                margin-top: 8px;
+                font-size: 12px;
+                line-height: 1.33;
+                font-family: "InterUIMedium";
+                color: $secondary_text;
+            }
+        }
+    }
+}

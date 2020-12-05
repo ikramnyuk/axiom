@@ -1,11 +1,9 @@
 import React, { Component } from 'react';
 import { Route, Switch, Redirect, withRouter } from "react-router-dom"
 
-import Header from './components/Header';
 import Footer from './components/Footer';
-import Home from './views/Home';
-import Privacy from './views/Privacy';
-import Refund from './views/Refund';
+import Landing from './views/Landing';
+import Dashboard from './views/Dashboard/';
 
 class App extends Component {
 	render() {
@@ -13,18 +11,11 @@ class App extends Component {
 
 		return (
 			<div className="App">
-				<div>
-					<Header history={history}/>
-					
-					<div className="main-wrap">
-						<Switch>
-							<Route history={history} path='/home' component={Home} />
-							<Route history={history} path='/privacy' component={Privacy} />
-							<Route history={history} path='/refund' component={Refund} />
-							<Redirect from='/' to='/home'/>
-						</Switch>
-					</div>
-				</div>
+				<Switch>
+					<Route history={history} path='/home' component={Landing} />
+					<Route history={history} path='/dashboard' component={Dashboard} />
+					<Redirect to='/home'/>
+				</Switch>
 
 				<Footer history={history}/>
 			</div>

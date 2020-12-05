@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="16" height="16" viewBox="0 0 16 16">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Прямоугольник_18" data-name="Прямоугольник 18" width="16" height="16" transform="translate(1358 299)" fill="#fff" stroke="#707070" stroke-width="1"/>
+    </clipPath>
+  </defs>
+  <g id="Группа_масок_6" data-name="Группа масок 6" transform="translate(-1358 -299)" clip-path="url(#clip-path)">
+    <g id="notifications" transform="translate(1357 298)">
+      <path id="Icon_color" data-name="Icon color" d="M6,16a1.554,1.554,0,0,1-1.5-1.6h3A1.554,1.554,0,0,1,6,16Zm5.25-3.2H.75A.777.777,0,0,1,0,12v-.472a.835.835,0,0,1,.217-.56L.84,10.3a2.5,2.5,0,0,0,.66-1.7V6.4a5.044,5.044,0,0,1,.9-2.88l.675-.96a2.214,2.214,0,0,1,1.8-.96H5.25V.4A.389.389,0,0,1,5.625,0h.75A.389.389,0,0,1,6.75.4V1.6h.375a2.214,2.214,0,0,1,1.8.96l.675.96a5.044,5.044,0,0,1,.9,2.88V8.608a2.5,2.5,0,0,0,.659,1.7l.623.664a.835.835,0,0,1,.217.56V12A.777.777,0,0,1,11.25,12.8Z" transform="translate(3 1)" fill="#f6f6f6"/>
+    </g>
+  </g>
+</svg>

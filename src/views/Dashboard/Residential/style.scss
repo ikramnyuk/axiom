@@ -1,0 +1,443 @@
+@import '../../../variables';
+
+.page.residental{
+    margin-bottom: 118px;
+
+    .block-row{
+        display: flex;
+
+        &:nth-child(1){
+            .left{
+                width: 400px;
+            }
+
+            .right{
+                width: calc(100% - 430px);
+                margin-left: 30px;
+            }
+        }
+
+        &:nth-child(2){
+            .left{
+                width: calc(100% - 430px);
+                margin-right: 30px;
+            }
+
+            .right{
+                width: 400px;
+            }
+        }
+    }
+
+    .left{
+        .proxies-container{
+            .label{
+                margin-bottom: 0;
+            }
+        }
+
+        .proxies{
+            .qty-container{
+                display: flex;
+                justify-content: space-between;
+
+                .qty-input{
+                    display: flex;
+                    border-radius: 3px;
+                    border: 1px solid $secondary_action;
+
+                    .control{
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        height: 45px;
+                        width: 45px;
+                        cursor: pointer;
+                    }
+
+                    input{
+                        height: 43px;
+                        width: 60px;
+                        padding: 0 10px;
+                        text-align: center;
+                        background-color: transparent;
+                        border: none;
+                        outline: none;
+                        box-shadow: none;
+                        border-left: 1px solid $border_primary;
+                        border-right: 1px solid $border_primary;
+                        line-height: 1.5;
+                        font-size: 12px;
+                        font-family: "InterUIMedium";
+                        color: $secondary_text;
+                        caret-color: $secondary_action;
+                    }
+                }
+
+                .main-btn{
+                    width: 150px;
+                    height: 45px;
+                }
+            }
+
+            .select-qty{
+                padding-top: 13px;
+    
+                .label{
+                    margin-bottom: 8px;
+                    font-size: 11px;
+                    line-height: 1.82;
+                    color: $secondary_text;
+                    font-weight: 700;
+                }
+    
+                .select{
+                    position: relative;
+                    width: 100%;
+                    height: 45px;
+                    line-height: 43px;
+                    border-radius: 3px;
+                    padding: 0 16px;
+                    background-color: $actions_gray;
+    
+                    span{
+                        line-height: 1.5;
+                        font-size: 12px;
+                        font-family: "InterUIMedium";
+                        color: $secondary_text;
+                    }
+    
+                    img{
+                        position: absolute;
+                        right: 12px;
+                        top: 50%;
+                        transform: translateY(-50%);
+                    }
+                }
+            }
+        }
+
+        .logs{
+            .label{
+                margin-bottom: 20px;
+            }
+
+            .list{
+                height: 185px;
+                overflow-y: auto;
+                padding: 14px 16px 9px;
+                background-color: $actions_gray;
+
+                p{
+                    margin: 0;
+                    line-height: 2;
+                    font-size: 12px;
+                    color: $secondary_text;
+                    font-family: "InterUIMedium";
+                }
+
+                &::-webkit-scrollbar {
+                    width: 4px;
+                    padding-right: 10px;
+                }
+                 
+                &::-webkit-scrollbar-track {
+                    background-color: transparent;
+                }
+                 
+                &::-webkit-scrollbar-thumb {
+                    background-color: #4b4c55;
+                    border-radius: 2px;
+                }
+            }
+
+            .actions{
+                display: flex;
+                justify-content: space-between;
+                padding-top: 32px;
+
+                .main-btn{
+                    width: 150px;
+                    height: 45px;
+                }
+
+                .btn-wrap{
+                    width: 336px;
+                    display: flex;
+                    justify-content: space-between;
+                }
+            }
+        }
+    }
+
+    .right{
+        .server-details{
+            
+            .custom-row{
+                display: flex;
+                align-items: flex-end;
+                margin-top: 14px;
+
+                .item{
+                    width: 25%;
+                    margin-left: 30px;
+
+                    &:first-child{
+                        margin-left: 0;
+                    }
+
+                    .header{
+                        margin-bottom: 7px;
+                        font-size: 11px;
+                        text-transform: uppercase;
+                        line-height: 1.82;
+                        color: $secondary_text;
+                    }
+
+                    .body{
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        height: 45px;
+                        font-size: 12px;
+                        line-height: 1.5;
+                        font-family: "InterUIMedium";
+                        color: $secondary_text;
+                        background-color: $actions_gray;
+                        border-radius: 3px;
+                    }
+                }
+
+                .main-btn{
+                    width: 100%;
+                    height: 45px;
+                }
+            }
+        }
+
+        .chart{
+            margin-top: 16px;
+
+            .label{
+                margin-bottom: 8px;
+                font-size: 11px;
+                line-height: 1.82;
+                color: $secondary_text;
+                font-weight: 700;
+            }
+
+            .chart-wrap{
+                height: 217px;
+                position: relative;
+                overflow: hidden;
+                
+                span{
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    position: absolute;
+                    transform: translateX(-50%);
+                    width: 95px;
+                    height: 30px;
+                    background-color: #4b4c55;
+                    border-radius: 3px;
+                    font-size: 10px;
+                    line-height: 1.4;
+                    color: $secondary_text;
+                    font-family: "InterUIMedium";
+                    transition: .2s;
+
+                    &:after{
+                        content: '';
+                        position: absolute;
+                        bottom: -3px;
+                        left: 44.5;
+                        width: 6px;
+                        height: 6px;
+                        border-radius: 2px;
+                        background-color: #4b4c55;
+                        transform: rotate(-45deg);
+                    }
+
+                    &:before{
+                        content: '';
+                        width: 6px;
+                        height: 6px;
+                        position: absolute;
+                        bottom: -15px;
+                        left: 44.5;
+                        border-radius: 50%;
+                        background-color: #00e5b9;
+                    }
+                }
+
+                .bg{
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: auto;
+                }
+                .area-chart {
+                    margin: 0;
+                    padding: 0;
+                    border: 0;
+                    width: 100%;
+                    max-width: var(--chart-width, 666px);
+                    height: var(--chart-height, 217px);
+                    display: flex;
+                    justify-content: stretch;
+                    align-items: stretch;
+                    flex-direction: row;
+                }
+                ul.area-chart,
+                ol.area-chart {
+                    list-style: none;
+                }
+                .area-chart  {
+                    & > *{
+                        width: 23.8px;
+                        background: linear-gradient(180deg, rgba(0,229,185,.6) 0%, rgba(44,46,52,.2) 100%);
+                        clip-path: polygon(
+                            0% calc(100% * (1 - var(--start))),
+                            100% calc(100% * (1 - var(--end))),
+                            100% 100%,
+                            0% 100%
+                        );
+                    }
+
+                    li{
+
+                        &:nth-child(1){
+                            --start: 0.1; --end: 0.12;
+                        }
+
+                        &:nth-child(2){
+                            --start: 0.12; --end: 0.15;
+                        }
+
+                        &:nth-child(3){
+                            --start: 0.15; --end: 0.15;
+                        }
+
+                        &:nth-child(4){
+                            --start: 0.15; --end: 0.18;
+                        }
+
+                        &:nth-child(5){
+                            --start: 0.18; --end: 0.25;
+                        }
+                        &:nth-child(6){
+                            --start: 0.25; --end: 0.3;
+                        }
+
+                        &:nth-child(7){
+                            --start: 0.3; --end: 0.37;
+                        }
+
+                        &:nth-child(8){
+                            --start: 0.37; --end: 0.43;
+                        }
+
+                        &:nth-child(9){
+                            --start: 0.43; --end: 0.5;
+                        }
+
+                        &:nth-child(10){
+                            --start: 0.5; --end: 0.6;
+                        }
+
+                        &:nth-child(11){
+                            --start: 0.6; --end: 0.65;
+                        }
+
+                        &:nth-child(12){
+                            --start: 0.65; --end: 0.72;
+                        }
+
+                        &:nth-child(13){
+                            --start: 0.72; --end: 0.77;
+                        }
+
+                        &:nth-child(14){
+                            --start: 0.77; --end: 0.83;
+                        }
+
+                        &:nth-child(15){
+                            --start: 0.83; --end: 0.88;
+                        }
+                    }
+                }
+            }
+        }
+
+        .purchase-center{
+            margin-top: 34px;
+
+            .sublabel{
+                margin-top: -15px;
+            }
+    
+            .select-qty{
+                padding-top: 20px;
+    
+                .label{
+                    margin-bottom: 8px;
+                    font-size: 11px;
+                    line-height: 1.82;
+                    color: $secondary_text;
+                    font-weight: 700;
+                }
+    
+                .select{
+                    position: relative;
+                    width: 100%;
+                    height: 45px;
+                    line-height: 43px;
+                    border-radius: 3px;
+                    padding: 0 16px;
+                    background-color: $actions_gray;
+    
+                    span{
+                        line-height: 1.5;
+                        font-size: 12px;
+                        font-family: "InterUIMedium";
+                        color: $secondary_text;
+                    }
+    
+                    img{
+                        position: absolute;
+                        right: 12px;
+                        top: 50%;
+                        transform: translateY(-50%);
+                    }
+                }
+            }
+    
+            .note{
+                margin: 26px 0 32px;
+                padding: 14px 16px 11px;
+                border-radius: 3px;
+                border: 1px solid $secondary_action;
+                line-height: 1.67;
+                font-size: 12px;
+                font-family: "InterUIMedium";
+                color: $secondary_text;
+            }
+    
+            .actions{
+                display: flex;
+    
+                .main-btn{
+                    width: 50%;
+                    height: 45px;
+                    margin-left: 36px;
+    
+                    &:first-child{
+                        margin-left: 0;
+                    }
+                }
+            }
+        }
+    }
+}

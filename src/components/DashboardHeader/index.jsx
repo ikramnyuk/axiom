@@ -3,7 +3,7 @@ import { HashLink as Link } from 'react-router-hash-link';
 
 import './style.scss';
 
-export default class Header extends Component {
+export default class DashboardHeader extends Component {
 
 	constructor(props) {
 		super(props);
@@ -19,22 +19,35 @@ export default class Header extends Component {
 	render () {
 		return (
 			<div>
-				<nav className="main-header">
-					<div className="main-header-wrap main-container">
+				<nav className="main-header dashboard">
+					<div className="main-header-wrap dashboard-container">
 						<div className="menu">
 							<Link to="home" className="logo-link">
 								<img src="./assets/img/logo.svg" alt=""/>
 							</Link>
 
-							<Link to="home#about">ABOUT</Link>
-							<Link to="home#features">FEATURES</Link>
-							<Link to="home#products">PRODUCTS</Link>
-							<Link to="home#sitelist">SITELIST</Link>
-							<Link to="home#faq">FAQ</Link>
-							<Link to="home#contact">CONTACT</Link>
+							<Link to="/dashboard/residential">RESIDENTIAL</Link>
+							<Link to="/dashboard/data-center">DATA CENTER</Link>
+							<Link to="/dashboard/servers">SERVERS</Link>
+							<Link to="/dashboard/purchase">PURCHASE</Link>
 						</div>
 
-						<div className="main-btn"><Link to="/dashboard">Dashboard</Link></div>
+						<div className="user-right">
+							<div className="notifications">
+								<img src="./assets/img/notification.svg" alt="avatar"/>
+							</div>
+
+							<div className="settings">
+								<img src="./assets/img/settings.svg" alt="avatar"/>
+							</div>
+
+							<div className="user-avatar">
+								<img src="./assets/img/avatar.svg" alt="avatar"/>
+								<div className="avatar-menu">
+									<img src="./assets/img/arrow-down.svg" alt="arrow"/>
+								</div>
+							</div>
+						</div>
 
 						<div className="menu-btn" onClick={() => {this.toggleMobile(true)}}>
 							<img src="./assets/img/menu-btn.svg" alt=""/>

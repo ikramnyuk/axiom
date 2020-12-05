@@ -1,0 +1,156 @@
+@import '../../../variables';
+
+.purchase{
+    margin-bottom: 88px;
+}
+
+.caregories{
+    display: flex;
+    padding-top: 20px;
+
+    .main-btn{
+        width: 100%;
+        margin-left: 32px;
+
+        &:first-child{
+            margin-left: 0;
+            height: 45px;
+        }
+    }
+}
+
+.tarifs{
+    display: flex;
+
+    .main-block{
+        position: relative;
+        width: 25%;
+        max-width: 268px;
+        margin-left: 29px;
+        padding: 22px 30px 32px;
+        margin-top: 29px;
+
+        &:first-child{
+            margin-left: 0;
+        }
+
+        &:last-child{
+            padding-top: 26px;
+
+            .label{
+                margin-bottom: 0;
+            }
+        }
+
+        .location{
+            position: absolute;
+            top: 15px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 10px;
+            line-height: 1.6;
+            color: $secondary_text;
+            font-family: "InterUIMedium";
+        }
+
+        .memory{
+            text-align: center;
+            line-height: 2.14;
+            font-size: 28px;
+            font-weight: 700;
+            color: $secondary_text;
+        }
+
+        .price{
+            position: relative;
+            margin-top: 6px;
+            font-size: 24px;
+            font-weight: 500;
+            line-height: 2;
+            color: $secondary_text;
+            text-align: center;
+            
+            .main-price{
+                display: inline-block;
+                position: relative;
+                left: 10px;
+            }
+
+            .big-price{
+                font-size: 56px;
+                line-height: 1.07;
+                font-weight: 700;
+            }
+
+            .sale{
+                position: absolute;
+                top: -10px;
+                right: 0px;
+                line-height: 1.33;
+                font-size: 12px;
+                font-family: "InterUIMedium";
+                color: $secondary_action;
+                text-transform: uppercase;
+            }
+        }
+
+        .main-btn{
+            width: 100%;
+            height: 45px;
+            margin-top: 15px;
+        }
+
+        .memory-price{
+            text-align: center;
+            margin-top: 22px;
+            font-size: 10px;
+            line-height: 1.5;
+            color: $secondary_text;
+        }
+
+        .list{
+            padding-top: 3px;
+
+            p{
+                margin: 0;
+                margin-top: 19px;
+                color: $secondary_text;
+                font-size: 12px;
+                font-family: "InterUIMedium";
+                line-height: 1.67;
+
+                span{
+                    margin-left: 6px;
+                }
+            }
+        }
+    }
+}
+
+.main-block.customers{
+    margin-top: 27px;
+    padding-bottom: 28px;
+
+    .sublabel{
+        margin-top: -15px;
+    }
+
+    .label .custom-tooltip{
+        position: relative;
+        top: -7px;
+    }
+}
+
+.clients{
+    margin: 0 -32.5px;
+    text-align: center;
+    font-size: 0;
+
+    div{
+        position: relative;
+        display: inline-block;
+        width: 80px;
+        height: 60px;
+        margin: 0 32.5px;
+    }
+}
