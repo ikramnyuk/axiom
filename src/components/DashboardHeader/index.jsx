@@ -22,7 +22,7 @@ export default class DashboardHeader extends Component {
 				<nav className="main-header dashboard">
 					<div className="main-header-wrap dashboard-container">
 						<div className="menu">
-							<Link to="home" className="logo-link">
+							<Link to="/dashboard" className="logo-link">
 								<img src="./assets/img/logo.svg" alt=""/>
 							</Link>
 
