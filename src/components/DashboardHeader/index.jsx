@@ -65,15 +65,16 @@ export default class DashboardHeader extends Component {
 						</Link>
 
 						<div className="menu">
-							<Link to="home#about">ABOUT</Link>
-							<Link to="home#features">FEATURES</Link>
-							<Link to="home#products">PRODUCTS</Link>
-							<Link to="home#sitelist">SITELIST</Link>
-							<Link to="home#faq">FAQ</Link>
-							<Link to="home#contact">CONTACT</Link>
+							<Link to="/dashboard">My Plans</Link>
+							<Link to="/dashboard/residential">Private Residentials</Link>
+							<Link to="/dashboard/data-center/ips">ISP Data Center</Link>
+							<Link to="/dashboard/data-center/premium">Premium Data Center</Link>
+							<Link to="/dashboard/servers">Bare Metal Servers</Link>
+							<Link to="/dashboard/purchase">Purchase</Link>
 						</div>
 
-						<div className="main-btn">Dashboard</div>
+						<div className="menu"><Link>Logout</Link></div>
+						
 					</div>
 				</div>
 			</div>

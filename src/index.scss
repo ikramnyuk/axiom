@@ -1525,6 +1525,18 @@ a{
         width: 135px;
         height: 38px;
     }
+
+    .main-header.dashboard .user-right{
+        display: none;
+    }
+
+    .main-header.dashboard .menu a:first-child{
+        margin-right: 0;
+    }
+
+    .main-header .main-header-wrap{
+        padding: 0;
+    }
 }
 
 @media(max-width: 500px){
