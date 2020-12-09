@@ -7,6 +7,8 @@ export default class Purchase extends Component {
 		super(props);
 		this.state = {
 			stateSelected: 0,
+			selectOpened: false,
+			selected: 'US',
 			plans: [
 				{
 					subPlans: [
@@ -99,30 +101,21 @@ export default class Purchase extends Component {
 		}
 	}
 
-	// {
-	// 	location: 'UNITED KINGDOM',
-	// 	subPlans: [
-	// 		{
-	// 			memoty: '25 Proxies',
-	// 			price: 'XX',
-	// 			priceDecimal: '.XX',
-	// 			memoryPrice: '$X.XX per proxy.'
-	// 		},
-	// 		{
-	// 			memoty: '50 Proxies',
-	// 			price: 'XX',
-	// 			priceDecimal: '.XX',
-	// 			memoryPrice: '$X.XX per proxy.'
-	// 		},
-	// 		{
-	// 			memoty: '100 Proxies',
-	// 			price: 'XX',
-	// 			priceDecimal: '.XX',
-	// 			memoryPrice: '$X.XX per proxy.'
-	// 		},
-	// 	],
-	// 	benefits: ['T1 Residential Network', 'Real Time Data Accounting', 'Site-Specific Filters', 'Optimized Duo-Hop Redundancy Routing', 'User:Pass (IP Auth soon)', '30 Day Activation', '175 Countries', '24M+ End Points', 'Instant Delivery']
-	// }
+	componentDidMount(){
+		let self = this,
+			element = document.querySelector('#select'),
+			element11 = document.querySelector('#select11');
+		
+		const outsideClickListener = event => {
+			event.stopPropagation();
+
+			if(event.target != element && event.target != element11) {
+				self.setState({selectOpened: false})
+			}
+		}
+	
+		document.addEventListener('click', outsideClickListener)
+	}
 
 	setSelectedPlan(index){
 		this.setState({stateSelected: index});
@@ -138,7 +131,14 @@ export default class Purchase extends Component {
 					<div className="caregories">
 						<div onClick={() => {this.setSelectedPlan(0)}} className={this.state.stateSelected === 0 ? "active main-btn" : "hover main-btn"}>PRIVATE RESIDENTIALS</div>
 						<div onClick={() => {this.setSelectedPlan(1)}} className={this.state.stateSelected === 1 ? "active main-btn" : "hover main-btn"}>ISP DC PROXIES</div>
-						<div onClick={() => {this.setSelectedPlan(2)}} className={this.state.stateSelected === 2 ? "active main-btn" : "hover main-btn"}> <span>PREMIUM DC PROXIES</span> {this.state.stateSelected === 2 ? <img src="./assets/img/tringle-dark-arrow.svg" alt="tringle"/> : <img src="./assets/img/tringle-arrow.svg" alt="tringle"/>}</div>
+						<div id="select" onClick={() => {this.setSelectedPlan(2); this.setState({selectOpened: true})}} className={this.state.stateSelected === 2 ? "active main-btn" : "hover main-btn"}>
+							<span id="select11">{this.state.selected} PREMIUM DC <br/> PROXIES</span> {this.state.stateSelected === 2 ? <img src="./assets/img/tringle-dark-arrow.svg" alt="tringle"/> : <img src="./assets/img/tringle-arrow.svg" alt="tringle"/>}
+							
+							<div className={this.state.selectOpened ? "opened select-wrap" : "select-wrap"}>
+								<span onClick={(e) => {e.stopPropagation(); this.setState({selectOpened: false, selected: 'US'})}}>US PREMIUM DC PROXIES</span>
+								<span onClick={(e) => {e.stopPropagation(); this.setState({selectOpened: false, selected: 'EU'})}}>EU PREMIUM DC PROXIES</span>
+							</div>
+						</div>
 						<div onClick={() => {this.setSelectedPlan(3)}} className={this.state.stateSelected === 3 ? "active main-btn" : "hover main-btn"}>BARE METAL SERVERS</div>
 					</div>
 				</div>
@@ -160,12 +160,12 @@ export default class Purchase extends Component {
 					)}
 					
 					<div className="main-block">
-						<div className="label">Product Information</div>
+						<div className="label">Product Info</div>
 
 						<div className="list">
 							<p><img src="./assets/img/done.svg" alt="check"/><span>175 Countries</span></p>
 							<p><img src="./assets/img/done.svg" alt="check"/><span>24M+ End Points</span></p>
-							<p><img src="./assets/img/done.svg" alt="check"/><span>User:Pass (IP Auth coming soon)</span></p>
+							<p><img src="./assets/img/done.svg" alt="check"/><span>User:Pass</span></p>
 							<p><img src="./assets/img/done.svg" alt="check"/><span>30 Day Activation</span></p>
 							<p><img src="./assets/img/done.svg" alt="check"/><span>Instant Delivery</span></p>
 						</div>

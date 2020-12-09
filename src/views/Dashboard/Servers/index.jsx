@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import { HashLink as Link } from 'react-router-hash-link';
 import './style.scss';
 
 export default class Servers extends Component {
@@ -132,8 +132,8 @@ export default class Servers extends Component {
 						</div>
 
 						<div className="actions">
-							<div className="main-btn">MY PLANS</div>
-							<div className="main-btn active">PURCHASE</div>
+							<Link to="/dashboard" className="main-btn">MY PLANS</Link>
+							<Link to="/dashboard/purchase" className="main-btn active">PURCHASE</Link>
 						</div>
 					</div>
 				</div>

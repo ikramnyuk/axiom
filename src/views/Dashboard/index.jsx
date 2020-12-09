@@ -20,7 +20,7 @@ class Landing extends Component {
                 <div className="main-wrap">
                     <Switch>
                         <Route history={history} path='/dashboard' component={Home} exact/>
-                        <Route history={history} path='/dashboard/data-center' component={ISP} />
+                        <Route history={history} path='/dashboard/data-center/:type' component={ISP} />
                         <Route history={history} path='/dashboard/purchase' component={Purchase} />
                         <Route history={history} path='/dashboard/residential' component={Residential} />
                         <Route history={history} path='/dashboard/servers' component={Servers} />

@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="12" height="12" viewBox="0 0 12 12">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Прямоугольник_527" data-name="Прямоугольник 527" width="12" height="12" transform="translate(269 379)" fill="none" stroke="#707070" stroke-width="1"/>
+    </clipPath>
+  </defs>
+  <g id="Группа_масок_130" data-name="Группа масок 130" transform="translate(-269 -379)" clip-path="url(#clip-path)">
+    <g id="collapse_all" transform="translate(271.014 379)">
+      <path id="Icon_color" data-name="Icon color" d="M.965,12a.41.41,0,0,1-.284-.111l-.56-.535a.348.348,0,0,1,0-.528L3.424,7.7a.623.623,0,0,1,.424-.165h.3a.63.63,0,0,1,.424.165l3.3,3.127A.353.353,0,0,1,8,11.09a.348.348,0,0,1-.121.264l-.568.535a.417.417,0,0,1-.56,0L4,9.289l-2.751,2.6A.414.414,0,0,1,.965,12ZM4.152,4.467h-.3A.637.637,0,0,1,3.424,4.3L.121,1.189a.362.362,0,0,1,0-.535L.689.119a.41.41,0,0,1,.56,0L4,2.711,6.751.111a.418.418,0,0,1,.568,0l.56.535a.362.362,0,0,1,0,.535L4.576,4.3A.627.627,0,0,1,4.152,4.467Z" transform="translate(0 0)" fill="#f6f6f6"/>
+    </g>
+  </g>
+</svg>

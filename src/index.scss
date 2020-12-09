@@ -133,6 +133,7 @@ a{
             font-size: 12px;
             line-height: 1.67;
             color: #4b4c55;
+            cursor: pointer;
         }
 
         .status{
@@ -166,6 +167,10 @@ a{
     }
 }
 
+.logs textarea{
+    display: none;
+}
+
 .dashboard .main-btn{
     position: relative;
     font-family: "InterUIMedium";
@@ -173,7 +178,13 @@ a{
     font-size: 12px;
     line-height: 1.5;
     color: $secondary_text;
+    text-align: center;
     transition: .3s;
+
+    &.disabled{
+        opacity: 0.5;
+        cursor: default;
+    }
 
     &.hover{
         color: $secondary_text;
@@ -207,6 +218,81 @@ a{
         top: 15px;
         right: 12px;
     }
+
+    .select-wrap{
+        position: absolute;
+        width: 100%;
+        text-align: center;
+        height: 0;
+        overflow: hidden;
+        transition: .3s;
+        z-index: 1000;
+
+        span{
+            display: inline-block;
+            width: 100%;
+            height: 48px;
+            line-height: 46px;
+            background-color: $secondary_action;
+            cursor: pointer;
+
+            &:hover{
+                background-color: #fff;
+            }
+        }
+
+        &.opened{
+            top: 0;
+            left: 0;
+            height: auto;
+        }
+    }
+}
+
+.select{
+    cursor: pointer;
+
+    .select-wrap{
+        position: absolute;
+        width: 100%;
+        text-align: center;
+        height: 0;
+        overflow: hidden;
+        transition: .3s;
+        z-index: 1000;
+
+        span{
+            display: inline-block;
+            width: 100%;
+            height: 48px;
+            line-height: 46px!important;
+            background-color: #fff;
+            color: #2c2e34!important;
+            cursor: pointer;
+
+            &:hover{
+                background-color: #00e5b9;
+            }
+        }
+
+        &.opened{
+            top: 0;
+            left: 0;
+            height: auto;
+        }
+    }
+}
+
+.realeses-container .custom-tooltip{
+    display: none;
+}
+
+.m-0{
+    margin: 0!important;
+}
+
+.pb-22{
+    padding-bottom: 22px!important;
 }
 
 @keyframes fadeInDown {
@@ -284,6 +370,69 @@ a{
 
             &:nth-child(odd){
                 display: none;
+            }
+        }
+    }
+}
+
+@media(max-width: 1200px){
+    .dashboard-container{
+        padding: 0 20px;
+    }
+
+    .dashboard .page.home{
+        flex-wrap: wrap;
+    }
+
+    .dashboard .page.home .left{
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+
+        .main-block:first-child{
+            width: 400px;
+        }
+
+        .main-block:last-child{
+            width: calc(100% - 430px);
+        }
+    }
+
+    .dashboard .realeses .item{
+        justify-content: flex-start;
+
+        .details{
+            flex: 1;
+        }
+    }
+
+    .dashboard .page.home .right{
+        width: 100%;
+        margin-left: 0;
+    }
+
+    .page.residental .block-row{
+        flex-wrap: wrap;
+    }
+
+    .page.residental .right .chart{
+        display: none;
+    }
+
+    .page.residental .right .server-details .custom-row{
+        flex-wrap: wrap;
+
+        .item{
+            width: calc(50% - 15px);
+            margin-left: 25px;
+
+            &:nth-child(3){
+                margin-top: 15px;
+                margin-left: 0;
+            }
+
+            &:nth-child(4){
+                margin-top: 15px;
             }
         }
     }
@@ -621,6 +770,66 @@ a{
         height: 40px;
         margin-bottom: 0;
     }
+
+    .page.residental .block-row:nth-child(2) {
+        flex-wrap: wrap;
+
+        .left, .right{
+            width: 100%;
+            margin: 0;
+        }
+    }
+
+    .page.isp{
+        flex-wrap: wrap;
+        margin-bottom: 18px;
+
+        .left, .right{
+            width: 100%;
+            margin: 0;
+        }
+    }
+
+    .page.servers{
+        flex-wrap: wrap;
+
+        .left, .right{
+            width: 100%;
+            margin: 0;
+        }
+    }
+
+    .tarifs {
+        flex-wrap: wrap;
+
+        .main-block{
+            width: calc(50% - 12.5px);
+            max-width: 100%;
+            margin-left: 25px;
+    
+            &:nth-child(1), &:nth-child(3){
+                margin-left: 0;
+            } 
+        }
+    }
+}
+
+@media(max-width: 900px){
+    .dashboard .page.home .left{
+        flex-wrap: wrap;
+
+        .main-block:first-child{
+            width: 100%;
+        }
+
+        .main-block:last-child{
+            width: 100%;
+        }
+    }
+
+    .dashboard .user-details .info .invite{
+        max-width: 200px;
+    }
 }
 
 @media(max-width: 768px){
@@ -658,5 +867,669 @@ a{
 
     .privacy .right .item .content{
         font-size: 10px;
+    }
+
+    .dashboard .page.home .left .main-block:first-child{
+        margin-top: 0;
+    }
+
+    .main-block{
+        margin-top: 24px;
+        padding: 22px 20px 27px;
+
+        .label{
+            font-size: 16px;
+            line-height: 1.5;
+        }
+    }
+
+    .dashboard .user-details .avatar img{
+        width: 100px;
+        height: 100px;
+    }
+
+    .dashboard .user-details .info .welcome{
+        font-size: 9px;
+        line-height: 1.78;
+    }
+
+    .dashboard .user-details .info .name{
+        font-size: 25px;
+        line-height: 1.2;
+    }
+
+    .dashboard .user-details .info .invite{
+        width: 175px;
+        height: 38px;
+    }
+
+    .dashboard .main-btn{
+        font-size: 10px;
+        line-height: 1.2;
+    }
+
+    .dashboard .realeses .item img{
+        width: 75px;
+    }
+
+    .dashboard .realeses .item{
+        margin-bottom: 20px;
+        padding: 15px 16px 13px 14px;
+    }
+
+    .dashboard .realeses .item .header .name, .dashboard .realeses .item .header .date{
+        font-size: 8px;
+        line-height: 1.5;
+    }
+
+    .dashboard .realeses .item .description{
+        margin-top: 6px;
+        font-size: 10px;
+        line-height: 1.4;
+    }
+
+    .main-block .label .custom-tooltip{
+        font-size: 10px;
+        line-height: 2;
+    }
+
+    .plans .label{
+        margin-bottom: -6px;
+    }
+
+    .plans-container .plan{
+        display: none;
+
+        &.mobile{
+            display: flex;
+            justify-content: space-between;
+            align-items: stretch;
+            margin-top: 20px;
+
+            &:first-child{
+                margin-top: 14px;
+            }
+        }
+    }
+
+    .plans-container .plan .cell-container{
+        width: calc(100% - 50px);
+        padding: 12px 14px 12px;
+        background-color: #2c2e34;
+    }
+
+    .plans-container .plan .plan-btn{
+        width: 40px;
+        height: auto;
+        margin-left: 10px;
+    }
+
+    .plans-container .plan .plan-cell{
+        display: flex;
+        align-items: center;
+        width: 100%;
+        max-width: 100%!important;
+        margin-top: 11px;
+        
+        .header, .body{
+            border-left: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .header{
+            min-width: 97px;
+            font-size: 9px;
+            line-height: 2.22;
+        }
+
+        .body{
+            font-size: 10px;
+            line-height: 1.5;
+        }
+    }
+
+    .plans-container .plan .plan-cell:first-child{
+        margin-top: 0;
+        padding-bottom: 0;
+    }
+
+    .plans-container .plan .plan-cell:last-child{
+        padding-bottom: 0;
+    }
+
+    .dashboard .user-details .info{
+        margin-left: 20px;
+    }
+
+    .realeses-container .custom-tooltip{
+        display: block;
+    }
+
+    .page.residental .block-row:nth-child(1) {
+        .left{
+            order: 2;
+        }
+
+        .right{
+            order: 1;
+            margin-left: 0;
+
+            .main-block{
+                margin-top: 0;
+            }
+        }
+
+        .left, .right{
+            width: 100%;
+        }
+    }
+
+    .page.residental .right .server-details .custom-row{
+        margin-top: 0;
+    }
+
+    .page.residental .right .server-details .custom-row .item .header{
+        font-size: 9px;
+        line-height: 2.22;
+    }
+
+    .page.residental .right .server-details .custom-row .item .body{
+        padding: 12px 14px 11px;
+        font-size: 10px;
+        line-height: 1.5;
+    }
+
+    .page.residental .left .proxies .select-qty .select{
+        padding: 0 14px;
+        height: 38px;
+        line-height: 36px;
+    }
+
+    .page.residental .left .proxies .select-qty .label{
+        font-size: 9px;
+        line-height: 2.22;
+    }
+
+    .page.residental .left .proxies .select-qty .select span{
+        font-size: 10px;
+        line-height: 1.5;
+    }
+
+    .logs .list-wrapp{
+        padding-top: 12px!important;
+    }
+
+    .logs .list{
+        padding: 0 14px 7px!important;
+        height: 213px!important;
+    }
+
+    .list p{
+        word-break: break-word!important;
+        font-size: 10px!important;
+    }
+
+    .page.residental .left .proxies .qty-container .main-btn{
+        width: 138px;
+        height: 38px;
+    }
+
+    .page.residental .left .proxies .qty-container .qty-input .control{
+        height: 36px;
+        width: 40px;
+    }
+
+    .page.residental .left .proxies .qty-container .qty-input input{
+        height: 36px;
+        width: 53px;
+    }
+
+    .page.residental .left .logs .actions .main-btn{
+        width: 135px;
+        height: 38px;
+
+        &:last-child{
+            display: none;
+        }
+    }
+
+    .page.residental .left .logs .actions .btn-wrap{
+        width: auto;
+    }
+
+    .page.residental .right .purchase-center .sublabel{
+        margin-top: -6px;
+        font-size: 10px;
+        line-height: 1.4;
+    }
+
+    .page.residental .right .purchase-center .select-qty{
+        padding-top: 14px;
+
+        .label{
+            font-size: 9px;
+            line-height: 2.22;
+        }
+    }
+
+    .page.residental .right .purchase-center .select-qty .select{
+        height: 38px;
+        line-height: 36px;
+        padding: 0 14px;
+        
+        span{
+            font-size: 10px;
+            line-height: 1.5;
+        }
+    }
+
+    .page.residental .right .purchase-center .note{
+        margin-bottom: 26px;
+        margin-top: 17px!important;
+    }
+
+    .note{
+        padding: 12px 14px 11px!important;
+        font-size: 10px!important;
+        line-height: 1.6!important;
+    }
+
+    .page.residental .right .purchase-center .actions .main-btn{
+        width: 135px;
+        height: 38px;
+    }
+
+    .page.residental{
+        margin-bottom: 38px;
+    }
+
+    .dashboard .page.home{
+        margin-bottom: 18px;
+    }
+
+    .main-block .sublabel{
+        line-height: 1.4;
+        font-size: 10px;
+        margin-top: -6px;
+    }
+
+    .page.isp .left .collections .actions{
+        justify-content: space-between;
+        margin-top: 14px;
+
+        .main-btn{
+            width: 135px;
+            height: 38px;
+        }
+    }
+
+    .main-block .label .status{
+        line-height: 2.22;
+        font-size: 9px;
+    }
+
+    .page.isp .left .server-details .custom-row{
+        flex-wrap: wrap;
+    }
+
+    .page.isp .left .server-details .custom-row .item{
+        width: calc(50% - 12.5px);
+        margin-left: 25px;
+
+        &:nth-child(1), &:nth-child(3){
+            margin-left: 0;
+        }
+
+        &:nth-child(3), &:nth-child(4){
+            margin-top: 14px;
+        }
+
+        .header{
+            font-size: 9px;
+            line-height: 2.22;
+        }
+
+        .body{
+            height: 38px;
+            line-height: 1.5;
+            font-size: 10px;
+        }
+    }
+
+    .page.isp .left .logs .label{
+        margin-bottom: 14px;
+    }
+
+    .page.isp .left .logs .actions{
+        padding-top: 26px;
+    }
+
+    .page.isp .left .logs .actions .main-btn{
+        width: 135px;
+        height: 38px;
+    }
+
+    .page.isp .left .logs .actions .btn-wrap{
+        width: auto;
+    }
+
+    .page.isp .left .logs .actions .btn-wrap .main-btn:last-child{
+        display: none;
+    }
+
+    .page.isp .right .ips .input .left .header{
+        font-size: 9px;
+        line-height: 2.22;
+    }
+
+    .page.isp .right .ips .input .left input{
+        height: 38px;
+        line-height: 1.5;
+        font-size: 10px;
+    }
+
+    .page.isp .right .ips .input .main-btn{
+        width: 65px;
+        margin-left: 25px;
+        height: 38px;
+    }
+
+    .page.isp .right .ips .note{
+        margin-top: 17px;
+        margin-bottom: 26px;
+    }
+
+    .page.isp .right .ips .ips-container .header{
+        font-size: 9px;
+        line-height: 2.22;
+        margin-top: 0;
+    }
+
+    .page.isp .right .ips .ips-container .list .item{
+        width: 86px;
+        height: 30px;
+        margin-left: 4px;
+        margin-right: 4px;
+        
+        span{
+            line-height: 1.6;
+            font-size: 10px;
+        }
+    }
+
+    .page.isp .right .purchase-center .select-qty {
+        padding-top: 14px;
+
+        .label{
+            font-size: 9px;
+            line-height: 2.22;
+            
+        }
+    }
+
+    .page.isp .right .purchase-center .select-qty .select{
+        height: 38px;
+        line-height: 36px;
+        padding: 0 14px;
+        
+        span{
+            font-size: 10px;
+            line-height: 1.5;
+        }
+    }
+
+    .page.isp .right .purchase-center .note{
+        margin-top: 17px;
+        margin-bottom: 26px;
+    }
+
+    .page.isp .right .purchase-center .actions .main-btn{
+        width: 135px;
+        height: 38px;
+    }
+
+    .page.servers .left .server-details .custom-row{
+        flex-wrap: wrap;
+    }
+
+    .page.servers .left .server-details .custom-row .item {
+        width: calc(50% - 12.5px);
+        margin-left: 25px;
+
+        &:nth-child(1), &:nth-child(3){
+            margin-left: 0;
+        }
+
+        &:nth-child(3), &:nth-child(4){
+            margin-top: 14px;
+        }
+
+        .header{
+            font-size: 9px;
+            line-height: 2.22;
+        }
+
+        .body{
+            height: 38px;
+            line-height: 1.5;
+            font-size: 10px;
+        }
+
+        &.hidden{
+            width: 0;
+        }        
+    }
+
+    .page.servers .left .server-details .custom-row:last-child{
+        .item:last-child{
+            margin-left: 0;
+            margin-top: 17px;
+            width: 100%;
+
+            .main-btn{
+                height: 38px;
+            }
+        }
+    }
+    
+    .page.servers .right .select-qty {
+        padding-top: 14px;
+
+        .label{
+            font-size: 9px;
+            line-height: 2.22;
+            
+        }
+    }
+
+    .page.servers .right .select-qty .select{
+        height: 38px;
+        line-height: 36px;
+        padding: 0 14px;
+        
+        span{
+            font-size: 10px;
+            line-height: 1.5;
+        }
+    }
+
+    .page.servers .right .note{
+        margin-top: 17px;
+        margin-bottom: 26px;
+    }
+
+    .page.servers .right .actions{
+        justify-content: space-between;
+
+        .main-btn{
+            width: 135px;
+            height: 38px;
+        }
+    }
+
+    .page.servers{
+        margin-bottom: 18px;
+
+        .left .main-block:first-child{
+            margin-top: 0;
+        }
+    }
+
+    .caregories{
+        flex-wrap: wrap;
+        padding-top: 14px;
+
+        .main-btn{
+            width: calc(50% - 12.5px);
+            height: 38px;
+            margin-left: 25px;
+            text-align: center;
+
+            span br{
+                display: block;
+            }
+
+            &:nth-child(3){
+                margin-top: 17px;
+                margin-left: 0;
+            }
+
+            &:nth-child(4){
+                margin-top: 17px;
+            }
+
+            &:first-child{
+                height: 38px;
+            }
+        }
+    }
+
+    .dashboard .main-btn img{
+        top: 12px;
+    }
+
+    .tarifs .main-block{
+        margin-top: 24px;
+        padding: 0 20px 10px;
+
+        &:last-child{
+            padding-top: 10px;
+        }
+    }
+
+    .tarifs .main-block .memory{
+        font-size: 20px;
+        line-height: 2.5;
+    }
+
+    .tarifs .main-block .price .big-price{
+        font-size: 40px;
+        line-height: 1;
+    }
+
+    .tarifs .main-block .price{
+        margin-top: 11px;
+        font-size: 16px;
+        line-height: 3.13;
+    }
+
+    .tarifs .main-block .price .main-price{
+        left: 4px;
+    }
+
+    .tarifs .main-block .main-btn{
+        width: 115px;
+        height: 38px;
+        margin: 3px auto 0;
+    }
+
+    .tarifs .main-block .memory-price{
+        margin-top: 14px;
+        font-size: 8px;
+        line-height: 1.5;
+    }
+
+    .tarifs .main-block .price .sale{
+        top: 0px;
+        right: 40px;
+        font-size: 8px;
+        line-height: 2;
+    }
+
+    .tarifs .main-block .list p{
+        margin-top: 13px;
+        line-height: 1.6;
+    }
+
+    .clients {
+        margin: 0 -5.5px;
+
+        div{
+            width: 50px;
+            height: 50px;
+            margin-left: 5.5px;
+            margin-right: 5.5px;
+            margin-top: -15px;
+
+            img{
+                width: 100%;
+                height: auto;
+            }
+        }
+    }
+
+    .page.purchase{
+        margin-bottom: 18px;
+    }
+
+    .main-block.customers .sublabel{
+        margin-top: -6px;
+        margin-bottom: 15px;
+    }
+
+    .tarifs .main-block .location{
+        position: static;
+        transform: none;
+        text-align: center;
+        margin-top: 9px;
+    }
+
+    .page.servers .unsibscribe-popup .main-block{
+        width: 335px;
+    }
+
+    .page.servers .unsibscribe-popup .main-block .alert{
+        margin-top: 14px;
+        margin-bottom: 26px;
+        padding: 12px 14px 11px;
+        font-size: 10px;
+        line-height: 1.6;
+    }
+
+    .page.servers .unsibscribe-popup .main-block .actions{
+        justify-content: space-between;
+
+        .main-btn{
+            width: 135px;
+            height: 38px;
+        }
+    }
+
+    .payment-status .actions{
+        justify-content: space-between;
+        margin-top: 14px;
+    }
+
+    .payment-status .actions .main-btn{
+        width: 135px;
+        height: 38px;
+    }
+}
+
+@media(max-width: 500px){
+    .tarifs .main-block .price .sale{
+        right: 2px;
+        top: -10px;
     }
 }

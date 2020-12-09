@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="12" height="12" viewBox="0 0 12 12">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Прямоугольник_685" data-name="Прямоугольник 685" width="12" height="12" transform="translate(4612 7637)" fill="none" stroke="#707070" stroke-width="1"/>
+    </clipPath>
+  </defs>
+  <g id="Группа_масок_160" data-name="Группа масок 160" transform="translate(-4612 -7637)" clip-path="url(#clip-path)">
+    <g id="Сгруппировать_318" data-name="Сгруппировать 318" transform="translate(4277 7533)">
+      <path id="Path" d="M7.879,3.293a.348.348,0,0,1,0,.527l-.568.535a.418.418,0,0,1-.56,0L4,1.756l-2.751,2.6a.417.417,0,0,1-.568,0L.121,3.82a.348.348,0,0,1,0-.527L3.424.166A.619.619,0,0,1,3.848,0h.3a.636.636,0,0,1,.424.166Z" transform="translate(345.001 116) rotate(180)" fill="#f6f6f6"/>
+      <path id="Path-2" data-name="Path" d="M3.421,4.3a.636.636,0,0,0,.424.166h.3A.619.619,0,0,0,4.573,4.3l3.3-3.12a.362.362,0,0,0,0-.535L7.316.111a.417.417,0,0,0-.568,0L4,2.711,1.246.119a.409.409,0,0,0-.56,0L.118.654a.362.362,0,0,0,0,.535Z" transform="translate(344.996 108.467) rotate(180)" fill="#f6f6f6"/>
+    </g>
+  </g>
+</svg>

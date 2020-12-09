@@ -1,13 +1,17 @@
 @import '../../variables';
 
+.dashboard .main-btn span br{
+    display: none;
+}
+
 .plans-container{
     .plan{
         display: flex;
         align-items: flex-end;
         margin-top: 14px;
 
-        &:first-child{
-            margin-top: 0;
+        &.mobile{
+            display: none;
         }
 
         .plan-cell{

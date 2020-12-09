@@ -27,7 +27,7 @@ export default class DashboardHeader extends Component {
 							</Link>
 
 							<Link to="/dashboard/residential">RESIDENTIAL</Link>
-							<Link to="/dashboard/data-center">DATA CENTER</Link>
+							<Link to="/dashboard/data-center/ips">DATA CENTER</Link>
 							<Link to="/dashboard/servers">SERVERS</Link>
 							<Link to="/dashboard/purchase">PURCHASE</Link>
 						</div>
@@ -42,9 +42,11 @@ export default class DashboardHeader extends Component {
 							</div>
 
 							<div className="user-avatar">
-								<img src="./assets/img/avatar.svg" alt="avatar"/>
+								<img src="./assets/img/big-avatar.svg" alt="avatar"/>
 								<div className="avatar-menu">
 									<img src="./assets/img/arrow-down.svg" alt="arrow"/>
+
+									<div className="logout">Logout</div>
 								</div>
 							</div>
 						</div>

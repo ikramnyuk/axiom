@@ -8,6 +8,7 @@ export default class Dashboard extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
+			realese: true,
 			plans1: [
 				[
 					{header: 'PLAN TOKEN', body: 'DbboLCMD'},
@@ -80,10 +81,16 @@ export default class Dashboard extends Component {
 						</div>
 					</div>
 
-					<div className="main-block">
-						<div className="label">Release Calendar</div>
+					<div className={this.state.realese ? "main-block realeses-container" : "main-block realeses-container pb-22"}>
+						<div className={this.state.realese ? "label" : "m-0 label"}>
+							<span>Release Calendar</span>
+							<div className="custom-tooltip">
+								{this.state.realese ? <img onClick={() => {this.setState({realese: false})}} src="./assets/img/hide-realese.svg" alt="hide"/> : ''}
+								{!this.state.realese ? <img onClick={() => {this.setState({realese: true})}} src="./assets/img/show-realese.svg" alt="show"/> : ''}
+							</div>
+						</div>
 
-						<div className="realeses">
+						{this.state.realese ? <div className="realeses">
 							<div className="item">
 								<img src="./assets/img/nike-1.svg" alt="nike"/>
 
@@ -147,15 +154,15 @@ export default class Dashboard extends Component {
 									</div>
 								</div>
 							</div>
-						</div>
+						</div> : ''}
 					</div>
 				</div>
 
 				<div className="right">
-					<Plans plans={this.state.plans1} lable="My Plans - Residential" />
-					<Plans plans={this.state.plans2} lable="My Plans - ISP Data Center" />
-					<Plans plans={this.state.plans3} lable="My Plans - Premium Data Center" />
-					<Plans plans={this.state.plans4} lable="My Plans - Servers"/>
+					<Plans plans={this.state.plans1} lable="My Plans - Residential" to="/dashboard/residential" />
+					<Plans plans={this.state.plans2} lable="My Plans - ISP Data Center" to="/dashboard/data-center/ips" />
+					<Plans plans={this.state.plans3} lable="My Plans - Premium Data Center" to="/dashboard/data-center/premium" />
+					<Plans plans={this.state.plans4} lable="My Plans - Servers" to="/dashboard/servers" />
 				</div>
             </div>
 		)
