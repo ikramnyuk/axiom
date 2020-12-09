@@ -300,7 +300,7 @@
                     list-style: none;
                 }
                 .area-chart  {
-                    position: absolute;
+                    
                     & > *{
                         width: 23.8px;
                         background: linear-gradient(180deg, rgba(0,229,185,.4) 0%, rgba(44,46,52,.2) 100%);
@@ -370,7 +370,7 @@
                         }
 
                         &:nth-child(15){
-                            --start: 0.83; --end: 0.88;
+                            --start: 0.83; --end: 0.84;
                         }
                     }
                 }

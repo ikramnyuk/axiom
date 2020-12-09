@@ -257,7 +257,7 @@ export default class Residetial extends Component {
 										<li onMouseLeave={() => {this.hideTooltip('72%')}} onMouseEnter={() => {this.showTooltip('72%', 11)}}></li>
 										<li onMouseLeave={() => {this.hideTooltip('77%')}} onMouseEnter={() => {this.showTooltip('77%', 12)}}></li>
 										<li onMouseLeave={() => {this.hideTooltip('83%')}} onMouseEnter={() => {this.showTooltip('83%', 13)}}></li>
-										<li onMouseLeave={() => {this.hideTooltip('88%')}} onMouseEnter={() => {this.showTooltip('88%', 14)}}></li>
+										<li onMouseLeave={() => {this.hideTooltip('84%')}} onMouseEnter={() => {this.showTooltip('84%', 14)}}></li>
 									</ul>
 								</div>
 							</div>
