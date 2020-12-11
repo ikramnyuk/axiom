@@ -63,12 +63,12 @@ export default class Header extends Component {
 						</Link>
 
 						<div className="menu">
-							<Link to="home#about">ABOUT</Link>
-							<Link to="home#features">FEATURES</Link>
-							<Link to="home#products">PRODUCTS</Link>
-							<Link to="home#sitelist">SITELIST</Link>
+							<Link to="home#about">About</Link>
+							<Link to="home#features">Features</Link>
+							<Link to="home#products">Products</Link>
+							<Link to="home#sitelist">Sitelist</Link>
 							<Link to="home#faq">FAQ</Link>
-							<Link to="home#contact">CONTACT</Link>
+							<Link to="home#contact">Contact</Link>
 						</div>
 
 						<div className="menu"><Link to="/dashboard">Dashboard</Link></div>
