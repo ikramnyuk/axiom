@@ -364,6 +364,7 @@
 
                         & > *{
                             width: 24px;
+                            left: -0.5px;
                             background: #00e5b9;
                             clip-path: polygon(
                                 0% calc(100% * (1 - var(--start))),
@@ -373,7 +374,7 @@
                             );
 
                             &:last-child{
-                                width: 22.3px;
+                                width: 23px;
                             }
                         }
                     }
