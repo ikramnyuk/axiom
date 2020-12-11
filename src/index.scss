@@ -156,6 +156,14 @@ a{
                 border-radius: 50%;
                 background-color: $secondary_action;
             }
+
+            &.error{
+                color: #E30072;
+
+                &:before{
+                    background-color: #E30072;
+                }
+            }
         }
     }
 
@@ -174,16 +182,21 @@ a{
 .dashboard .main-btn{
     position: relative;
     font-family: "InterUIMedium";
-    background-color: $actions_gray;
+    background-color: #2C2E34;
     font-size: 12px;
     line-height: 1.5;
     color: $secondary_text;
     text-align: center;
     transition: .3s;
+    user-select: none;
 
     &.disabled{
         opacity: 0.5;
         cursor: default;
+    }
+
+    &:hover{
+        background-color: #3D4048;
     }
 
     &.hover{
@@ -194,6 +207,10 @@ a{
             color: $secondary_bg;
             background-color: $secondary_action;
         }
+    }
+
+    &.cleared{
+        background-color: #24262B;
     }
 
     &.active{
@@ -217,24 +234,43 @@ a{
         position: absolute;
         top: 15px;
         right: 12px;
+        transition: .3s;
+
+        &.img-opened{
+            transform: rotate(-180deg);
+        }
     }
 
     .select-wrap{
         position: absolute;
         width: 100%;
-        text-align: center;
         height: 0;
+        left: 0;
+        top: 0;
         overflow: hidden;
         transition: .3s;
         z-index: 1000;
 
         span{
+            padding: 0 16px;
             display: inline-block;
             width: 100%;
             height: 48px;
             line-height: 46px;
             background-color: $secondary_action;
+            font-family: "InterUIMedium";
             cursor: pointer;
+
+            @media(max-width: 768px){
+                height: 38px;
+                line-height: 36px;
+                padding: 0;
+            }
+
+            &:last-child{
+                border-bottom-left-radius: 3px;
+                border-bottom-right-radius: 3px;
+            }
 
             &:hover{
                 background-color: #fff;
@@ -242,45 +278,116 @@ a{
         }
 
         &.opened{
-            top: 0;
+            top: 43px;
             left: 0;
             height: auto;
+
+            @media(max-width: 768px){
+                top: 36px;
+                left: 0;
+            }
         }
     }
 }
 
+@media(max-width: 768px){
+    .dashboard .main-btn span br{
+        display: block;
+    }
+}
+
+.dashboard .main-btn span{
+    width: 100%;
+    display: inline-block;
+    position: relative;
+    z-index: 10;
+}
+
 .select{
+    background-color: #2C2E34;
     cursor: pointer;
+
+    img{
+        transition: .3s;
+    }
+
+    &.open{
+        background-color: #24262B!important;
+        
+        img{
+            transform: translateY(-50%) rotate(-180deg)!important;
+        }
+    }
 
     .select-wrap{
         position: absolute;
         width: 100%;
-        text-align: center;
         height: 0;
+        left: 0;
+        top: 0;
         overflow: hidden;
-        transition: .3s;
         z-index: 1000;
-
+        
         span{
+            padding: 0 16px;
             display: inline-block;
             width: 100%;
             height: 48px;
             line-height: 46px!important;
-            background-color: #fff;
-            color: #2c2e34!important;
+            background-color: #2C2D33;
+            color: #f6f6f6!important;
             cursor: pointer;
+            border-top: 1px solid #707070;
+
+            @media(max-width: 768px){
+                height: 38px;
+                line-height: 38px!important;
+            }
+
+            &:last-child{
+                border-bottom-left-radius: 3px;
+                border-bottom-right-radius: 3px;
+            }
 
             &:hover{
-                background-color: #00e5b9;
+                background-color: #35363D;
             }
         }
 
         &.opened{
-            top: 0;
-            left: 0;
+            top: 45px;
             height: auto;
+            overflow: visible;
+
+            &:after{
+                content: '';
+                position: absolute;
+                top: -45px;
+                left: 0;
+                width: 100%;
+                height: 141px;
+                box-shadow: 0 3px 30px 0 rgba(0, 0, 0, 0.3);
+            }
+
+            @media(max-width: 768px){
+                height: 38px;
+                left: 0;
+                top: 38px;
+
+                &:after{
+                    height: 116px;
+                    top: -38px;
+                }
+            }
         }
     }
+}
+
+.select-qty .select span{
+    width: 100%;
+    display: inline-block;
+    position: relative;
+    z-index: 10;
 }
 
 .realeses-container .custom-tooltip{

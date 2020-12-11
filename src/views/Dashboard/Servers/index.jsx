@@ -6,8 +6,26 @@ export default class Servers extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			unsibscribe: false
+			unsibscribe: false,
+			selectOpened: false,
+			selected: '1 Server - $110.00/m',
 		}
+	}
+
+	componentDidMount(){
+		let self = this,
+			element = document.querySelector('#select'),
+			element11 = document.querySelector('#select11');
+
+		const outsideClickListener = event => {
+			event.stopPropagation();
+
+			if(event.target != element && event.target != element11) {
+				self.setState({selectOpened: false})
+			}
+		}
+	
+		document.addEventListener('click', outsideClickListener)
 	}
 
 	render () {
@@ -121,9 +139,14 @@ export default class Servers extends Component {
 						<div className="select-qty">
 							<div className="label">QUANTITY</div>
 
-							<div className="select">
-								<span>AXIOM Bare Metal Server - 1 Server - $110.00/m</span>
+							<div id="select" className={this.state.selectOpened ? 'select open' : 'select'} onClick={() => {this.setState({selectOpened: true})}}>
+								<span id="select11">AXIOM Bare Metal Server - { this.state.selected }</span>
 								<img src="./assets/img/tringle-arrow.svg" alt="tringle"/>
+
+								<div className={this.state.selectOpened ? "opened select-wrap" : "select-wrap"}>
+									<span onClick={(e) => {e.stopPropagation(); this.setState({selectOpened: false, selected: '1 Server - $110.00/m'})}}>AXIOM Bare Metal Server - 1 Server - $110.00/m</span>
+									<span onClick={(e) => {e.stopPropagation(); this.setState({selectOpened: false, selected: '2 Server - $150.00/m'})}}>AXIOM Bare Metal Server - 2 Server - $150.00/m</span>
+								</div>
 							</div>
 						</div>
 

@@ -44,7 +44,7 @@ export default class Plans extends Component {
 											</div>)
 										})}
 									</div>
-									<Link to={plan.to} className="main-btn active plan-btn">SEE</Link>
+									<Link to={this.props.to} className="main-btn active plan-btn">SEE</Link>
 								</div>
 							</div>
 						)

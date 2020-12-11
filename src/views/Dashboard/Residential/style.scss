@@ -41,10 +41,27 @@
                 display: flex;
                 justify-content: space-between;
 
+                &.push .qty-input{
+                    background-color: #24262B!important;
+                }
+
                 .qty-input{
                     display: flex;
                     border-radius: 3px;
-                    border: 1px solid $secondary_action;
+                    border: 1px solid #3F4148;
+                    background-color: #2C2E34;
+
+                    &:hover{
+                        background-color: #3D4048;
+
+                        input{
+                            border-color: #4D5058;
+                        }
+                    }
+
+                    &.typing{
+                        border-color: $secondary_action;
+                    }
 
                     .control{
                         display: flex;
@@ -56,7 +73,7 @@
                     }
 
                     input{
-                        height: 43px;
+                        height: 45px;
                         width: 60px;
                         padding: 0 10px;
                         text-align: center;
@@ -236,6 +253,17 @@
                 position: relative;
                 overflow: hidden;
                 
+                &:before{
+                    content: '';
+                    width: 100%!important;
+                    height: 1px;
+                    top: calc(50% - 0.5px);
+                    left: 0;
+                    position: absolute;
+                    background-color: #212226;
+                    z-index: 0;
+                }
+
                 span{
                     display: flex;
                     justify-content: center;
@@ -251,7 +279,7 @@
                     color: $secondary_text;
                     font-family: "InterUIMedium";
                     transition: .2s;
-
+                    
                     &:after{
                         content: '';
                         position: absolute;
@@ -263,11 +291,24 @@
                         background-color: #4b4c55;
                         transform: rotate(-45deg);
                     }
+                    
+                    &.left-tip:after{
+                        left: 21px;
+                    }
+
+                    &.left-tip:before{
+                        left: 21px;
+                    }
+
+                    // &.right-tip:after{
+                    //     left: auto;
+                    //     right: 10px;
+                    // }
 
                     &:before{
                         content: '';
-                        width: 6px;
-                        height: 6px;
+                        width: 8px;
+                        height: 8px;
                         position: absolute;
                         bottom: -15px;
                         left: 44.5;
@@ -279,9 +320,10 @@
                 .bg{
                     position: absolute;
                     top: 0;
-                    left: 0;
+                    left: 0.7px;
                     width: 100%;
                     height: auto;
+                    z-index: 0;
                 }
                 .area-chart {
                     margin: 0;
@@ -300,9 +342,11 @@
                     list-style: none;
                 }
                 .area-chart  {
-                    
+                    position: absolute;
+                    z-index: 3;
+
                     & > *{
-                        width: 23.8px;
+                        width: 23.9px;
                         background: linear-gradient(180deg, rgba(0,229,185,.4) 0%, rgba(44,46,52,.2) 100%);
                         clip-path: polygon(
                             0% calc(100% * (1 - var(--start))),
@@ -312,7 +356,31 @@
                         );
                     }
                     
+                    &.line {
+                        z-index: 2;
+                        &:before{
+                            display: none;
+                        }
+
+                        & > *{
+                            width: 24px;
+                            background: #00e5b9;
+                            clip-path: polygon(
+                                0% calc(100% * (1 - var(--start))),
+                                0% calc(100% * (1 - var(--start) + 0.02)),
+                                100% calc(100% * (1 - var(--end) + 0.02)),
+                                100% calc(100% * (1 - var(--end))),
+                            );
+
+                            &:last-child{
+                                width: 22.3px;
+                            }
+                        }
+                    }
+
                     li{
+                        position: relative;
+                        z-index: 2;
 
                         &:nth-child(1){
                             --start: 0.1; --end: 0.12;

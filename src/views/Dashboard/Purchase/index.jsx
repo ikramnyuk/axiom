@@ -8,7 +8,9 @@ export default class Purchase extends Component {
 		this.state = {
 			stateSelected: 0,
 			selectOpened: false,
-			selected: 'US',
+			selected: '',
+			selectOpened2: false,
+			selected2: '',
 			plans: [
 				{
 					subPlans: [
@@ -104,13 +106,19 @@ export default class Purchase extends Component {
 	componentDidMount(){
 		let self = this,
 			element = document.querySelector('#select'),
-			element11 = document.querySelector('#select11');
+			element11 = document.querySelector('#select11'),
+			element2 = document.querySelector('#select2'),
+			element21 = document.querySelector('#select21');
 		
 		const outsideClickListener = event => {
 			event.stopPropagation();
 
 			if(event.target != element && event.target != element11) {
 				self.setState({selectOpened: false})
+			}
+
+			if(event.target != element2 && event.target != element21) {
+				self.setState({selectOpened2: false})
 			}
 		}
 	
@@ -130,13 +138,20 @@ export default class Purchase extends Component {
 
 					<div className="caregories">
 						<div onClick={() => {this.setSelectedPlan(0)}} className={this.state.stateSelected === 0 ? "active main-btn" : "hover main-btn"}>PRIVATE RESIDENTIALS</div>
-						<div onClick={() => {this.setSelectedPlan(1)}} className={this.state.stateSelected === 1 ? "active main-btn" : "hover main-btn"}>ISP DC PROXIES</div>
-						<div id="select" onClick={() => {this.setSelectedPlan(2); this.setState({selectOpened: true})}} className={this.state.stateSelected === 2 ? "active main-btn" : "hover main-btn"}>
-							<span id="select11">{this.state.selected} PREMIUM DC <br/> PROXIES</span> {this.state.stateSelected === 2 ? <img src="./assets/img/tringle-dark-arrow.svg" alt="tringle"/> : <img src="./assets/img/tringle-arrow.svg" alt="tringle"/>}
+						<div id="select" onClick={() => {this.setSelectedPlan(1); this.setState({selectOpened: true})}} className={this.state.stateSelected === 1 ? "active main-btn" : "hover main-btn"}>
+							<span id="select11">{this.state.selected} ISP DC <br/> PROXIES</span> {this.state.stateSelected === 1 ? <img className={this.state.selectOpened ? "img-opened" : ""} src="./assets/img/tringle-dark-arrow.svg" alt="tringle"/> : <img src="./assets/img/tringle-arrow.svg" alt="tringle"/>}
 							
 							<div className={this.state.selectOpened ? "opened select-wrap" : "select-wrap"}>
-								<span onClick={(e) => {e.stopPropagation(); this.setState({selectOpened: false, selected: 'US'})}}>US PREMIUM DC PROXIES</span>
-								<span onClick={(e) => {e.stopPropagation(); this.setState({selectOpened: false, selected: 'EU'})}}>EU PREMIUM DC PROXIES</span>
+								<span onClick={(e) => {e.stopPropagation(); this.setState({selectOpened: false, selected: 'US'})}}>US ISP DC PROXIES</span>
+								<span onClick={(e) => {e.stopPropagation(); this.setState({selectOpened: false, selected: 'EU'})}}>EU ISP DC PROXIES</span>
+							</div>
+						</div>
+						<div id="select2" onClick={() => {this.setSelectedPlan(2); this.setState({selectOpened2: true})}} className={this.state.stateSelected === 2 ? "active main-btn" : "hover main-btn"}>
+							<span id="select21">{this.state.selected2} PREMIUM DC <br/> PROXIES</span> {this.state.stateSelected === 2 ? <img className={this.state.selectOpened2 ? "img-opened" : ""} src="./assets/img/tringle-dark-arrow.svg" alt="tringle"/> : <img src="./assets/img/tringle-arrow.svg" alt="tringle"/>}
+							
+							<div className={this.state.selectOpened2 ? "opened select-wrap" : "select-wrap"}>
+								<span onClick={(e) => {e.stopPropagation(); this.setState({selectOpened2: false, selected2: 'US'})}}>US PREMIUM DC PROXIES</span>
+								<span onClick={(e) => {e.stopPropagation(); this.setState({selectOpened2: false, selected2: 'EU'})}}>EU PREMIUM DC PROXIES</span>
 							</div>
 						</div>
 						<div onClick={() => {this.setSelectedPlan(3)}} className={this.state.stateSelected === 3 ? "active main-btn" : "hover main-btn"}>BARE METAL SERVERS</div>

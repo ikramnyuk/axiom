@@ -6,7 +6,13 @@ export default class ISP extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			premium: false,
+			premium: true,
+			selectOpened3: false,
+			selected3: '25 Proxies - $75.00',
+			selectOpened: false,
+			selected: '',
+			selectOpened2: false,
+			selected2: '',
 			newIP: '',
 			ips: ['88.132.32.15', '88.132.32.15', '88.132.32.15', '88.132.32.15', '88.132.32.15']
 		}
@@ -14,10 +20,36 @@ export default class ISP extends Component {
 
 	componentDidMount(){
 		if(this.props.match.params.type === 'ips'){
-			this.setState({premium: false});
-		}else{
 			this.setState({premium: true});
+		}else{
+			this.setState({premium: false});
 		}
+
+		let self = this,
+			element3 = document.querySelector('#select'),
+			element31 = document.querySelector('#select31'),
+			element = document.querySelector('#select'),
+			element11 = document.querySelector('#select11'),
+			element2 = document.querySelector('#select2'),
+			element21 = document.querySelector('#select21');
+
+		const outsideClickListener = event => {
+			event.stopPropagation();
+
+			if(event.target != element && event.target != element11) {
+				self.setState({selectOpened: false})
+			}
+
+			if(event.target != element2 && event.target != element21) {
+				self.setState({selectOpened2: false})
+			}
+
+			if(event.target != element3 && event.target != element31) {
+				self.setState({selectOpened3: false})
+			}
+		}
+	
+		document.addEventListener('click', outsideClickListener)
 	}
 
 	updateInputValue(evt) {
@@ -37,7 +69,7 @@ export default class ISP extends Component {
 		
 		navigator.clipboard.writeText(element.value);
 	}
-
+	
 	render () {
 		return (
 			<div className="page dashboard-container isp">
@@ -47,18 +79,32 @@ export default class ISP extends Component {
 						<div className="sublabel">Select the Data Center collection you would like to view in the dashboard.</div>
 
 						<div className="actions">
-							<div onClick={() => {this.setState({premium: false})}} className={!this.state.premium ? "main-btn active" : "main-btn"}>ISP DATA CENTER</div>
-							<div onClick={() => {this.setState({premium: true})}} className={this.state.premium ? "main-btn active" : "main-btn"}>PREMIUM DATA CENTER</div>
+							<div id="select" onClick={() => {this.setState({selectOpened: true, premium: true})}} className={this.state.premium ? "active main-btn" : "hover main-btn"}>
+								<span id="select11">{this.state.selected} ISP DC <br/> PROXIES</span> {this.state.premium ? <img className={this.state.selectOpened ? "img-opened" : ""} src="./assets/img/tringle-dark-arrow.svg" alt="tringle"/> : <img src="./assets/img/tringle-arrow.svg" alt="tringle"/>}
+								
+								<div className={this.state.selectOpened ? "opened select-wrap" : "select-wrap"}>
+									<span onClick={(e) => {e.stopPropagation(); this.setState({selectOpened: false, selected: 'US'})}}>US ISP DC PROXIES</span>
+									<span onClick={(e) => {e.stopPropagation(); this.setState({selectOpened: false, selected: 'EU'})}}>EU ISP DC PROXIES</span>
+								</div>
+							</div>
+							<div id="select2" onClick={() => {this.setState({selectOpened2: true, premium: false})}} className={!this.state.premium ? "active main-btn" : "hover main-btn"}>
+								<span id="select21">{this.state.selected2} PREMIUM DC <br/> PROXIES</span> {!this.state.premium ? <img className={this.state.selectOpened2 ? "img-opened" : ""} src="./assets/img/tringle-dark-arrow.svg" alt="tringle"/> : <img src="./assets/img/tringle-arrow.svg" alt="tringle"/>}
+								
+								<div className={this.state.selectOpened2 ? "opened select-wrap" : "select-wrap"}>
+									<span onClick={(e) => {e.stopPropagation(); this.setState({selectOpened2: false, selected2: 'US'})}}>US PREMIUM DC PROXIES</span>
+									<span onClick={(e) => {e.stopPropagation(); this.setState({selectOpened2: false, selected2: 'EU'})}}>EU PREMIUM DC PROXIES</span>
+								</div>
+							</div>
 						</div>
 					</div>
 
-					<div className="main-block">
+					{!this.state.premium ? <div className="main-block">
 						<div className="label">
 							<span>Plan Information</span>
 							<div className="status">Active</div>
 						</div>
 
-						{!this.state.premium ? <div className="server-details">
+						<div className="server-details">
 							<div className="custom-row">
 								<div className="item">
 									<div className="header">PLAN TOKEN</div>
@@ -80,14 +126,18 @@ export default class ISP extends Component {
 									<div className="body">Sat Sep 05 2020</div>
 								</div>
 							</div>
-						</div> : ""}
+						</div>
+					</div> : <div className="main-block">
+						<div className="label">
+							<span>Plan Information</span>
+							<div className="status error">Expired</div>
+						</div>
 
-						{this.state.premium ? 
-							<div className="server-details">
+						<div className="server-details">
 							<div className="custom-row">
 								<div className="item">
 									<div className="header">PLAN TOKEN</div>
-									<div className="body">PPdmuyQQ</div>
+									<div className="body">aasdFQWsf</div>
 								</div>
 
 								<div className="item">
@@ -105,8 +155,8 @@ export default class ISP extends Component {
 									<div className="body">Sat Sep 05 2020</div>
 								</div>
 							</div>
-						</div> : ""}
-					</div>
+						</div>
+					</div>}
 
 					<div className="main-block logs">
 						<div className="label">
@@ -167,7 +217,7 @@ export default class ISP extends Component {
 								privatepool.axiom.io:15432:DbboLCMA:ghadaHJNQJLdasdNDADkgnagwnKLIOQdalksQDAAAA
 							</textarea>
 
-							<div className="list-wrapp"><div className="list">
+							{!this.state.isClear ? <div className="list-wrapp"><div className="list">
 							<p>privatepool.axiom.io:15432:DbboLCMA:ghadaHJNQJLdasdNDADkgnagwnKLIOQdalksQDAAAA</p>
 							<p>privatepool.axiom.io:15432:DbboLCMA:ghadaHJNQJLdasdNDADkgnagwnKLIOQdalksQDAAAA</p>
 							<p>privatepool.axiom.io:15432:DbboLCMA:ghadaHJNQJLdasdNDADkgnagwnKLIOQdalksQDAAAA</p>
@@ -219,7 +269,7 @@ export default class ISP extends Component {
 							<p>privatepool.axiom.io:15432:DbboLCMA:ghadaHJNQJLdasdNDADkgnagwnKLIOQdalksQDAAAA</p>
 							<p>privatepool.axiom.io:15432:DbboLCMA:ghadaHJNQJLdasdNDADkgnagwnKLIOQdalksQDAAAA</p>
 							</div>
-						</div>
+						</div> : <div className="list-wrapp"><div className="list"></div></div>}
 
 						<div className="actions">
 							<div className="main-btn disabled">CLEAR</div>
@@ -268,9 +318,14 @@ export default class ISP extends Component {
 						<div className="select-qty">
 							<div className="label">QUANTITY</div>
 
-							<div className="select">
-								<span>AXIOM ISP DCs - 25 Proxies - $75.00</span>
+							<div id="select" className={this.state.selectOpened3 ? 'select open' : 'select'} onClick={() => {this.setState({selectOpened3: true})}}>
+							<span id="select31">AXIOM ISP DCs - { this.state.selected3 }</span>
 								<img src="./assets/img/tringle-arrow.svg" alt="tringle"/>
+
+								<div className={this.state.selectOpened3 ? "opened select-wrap" : "select-wrap"}>
+									<span onClick={(e) => {e.stopPropagation(); this.setState({selectOpened3: false, selected3: '25 Proxies - $75.00'})}}>AXIOM ISP DCs - 25 Proxies - $75.00</span>
+									<span onClick={(e) => {e.stopPropagation(); this.setState({selectOpened3: false, selected3: '50 Proxies - $120.00'})}}>AXIOM ISP DCs - 50 Proxies - $120.00</span>
+								</div>
 							</div>
 						</div>
 

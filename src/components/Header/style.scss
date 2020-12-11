@@ -147,3 +147,50 @@
         display: block;
     }
 }
+
+.logo-animation-wrap{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #212226;
+    z-index: 10000;
+
+    .animate{
+
+    }
+
+    svg{
+        width: 200px;
+        height: auto;
+
+        *{
+            fill: #212226;
+        }
+    }
+
+    polygon, path {
+        stroke: #f6f6f6;
+        stroke-dasharray: 500;
+        stroke-dashoffset: 500;
+        animation: draw 2.5s linear forwards, color 1s linear 3s forwards;
+    }
+       
+    @keyframes draw {
+        100% {
+            stroke-dashoffset: 0;
+        }
+    }
+
+    @keyframes color {
+        100% {
+            fill: #f6f6f6;
+        }
+    }
+}

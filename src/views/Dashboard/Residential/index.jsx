@@ -7,13 +7,14 @@ export default class Residetial extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
+			tooltipClass: '',
 			decrease: false,
 			increase: false,
 			isClear: false,
 			qty: 0,
 			tooltipTop: {bottom: '-200px', opacity: '0'},
 			selectOpened: false,
-			selected: 'AXIOM Private Pool - 2GB - $50.00',
+			selected: '2GB - $50.00',
 			selectOpened2: false,
 			selected2: 'Select between Static or Rotating proxies',
 			selectOpened3: false,
@@ -67,7 +68,7 @@ export default class Residetial extends Component {
 		let qty = this.state.qty,
 		formated = parseInt(qty);
 
-		if(formated == 100){
+		if(formated == 9999){
 			return;
 		}
 
@@ -89,12 +90,20 @@ export default class Residetial extends Component {
 		this.setState({qty: formated});
 	}
 
-	showTooltip(top, index){
-		this.setState({ tooltipTop: {bottom: "calc(" + top + " + 9px)", left: (index * 24) + 12 + "px", opacity: 1} })
+	showTooltip(top, left, index){
+		if(index == 0){
+			this.setState({ tooltipClass: 'left-tip'})
+		}
+
+		if(index == 14){
+			this.setState({ tooltipClass: 'right-tip'})
+		}
+
+		this.setState({ tooltipTop: {bottom: "calc(" + top + " + 8px)", left: left, opacity: 1} })
 	}
 
 	hideTooltip(index){
-		this.setState({ tooltipTop: this.tooltipTop = {bottom: "-200px", left: (index * 24) + 12 + "px", opacity: 0} })
+		this.setState({ tooltipClass: '', tooltipTop: {bottom: "-200px", left: 0, opacity: 0} })
 	}
 
 	copy(){
@@ -119,6 +128,7 @@ export default class Residetial extends Component {
 			this.setState({qty: formated});
 		}, 100);
 
+		this.setState({push: true});
 		this.setState({decrease: interval});
 	}
 
@@ -136,6 +146,7 @@ export default class Residetial extends Component {
 			this.setState({qty: formated});
 		}, 100);
 
+		this.setState({push: true});
 		this.setState({increase: interval});
 	}
 
@@ -151,7 +162,7 @@ export default class Residetial extends Component {
 								<div className="select-qty">
 									<div className="label">PROXY TYPE</div>
 
-									<div id="select2" className="select" onClick={() => {this.setState({selectOpened2: true})}}>
+									<div id="select2" className={this.state.selectOpened2 ? 'select open' : 'select'} onClick={() => {this.setState({selectOpened2: true})}}>
 										<span id="select21">{this.state.selected2}</span>
 										<img src="./assets/img/tringle-arrow.svg" alt="tringle"/>
 
@@ -164,20 +175,20 @@ export default class Residetial extends Component {
 								<div className="select-qty">
 									<div className="label">CATEGORY / REGION</div>
 
-									<div id="select3" className="select" onClick={() => {this.setState({selectOpened3: true})}}>
-										<span id="select3">{this.state.selected3}</span>
+									<div id="select3" className={this.state.selectOpened3 ? 'select open' : 'select'} onClick={() => {this.setState({selectOpened3: true})}}>
+										<span id="select31">{this.state.selected3}</span>
 										<img src="./assets/img/tringle-arrow.svg" alt="tringle"/>
 
 										<div className={this.state.selectOpened3 ? "opened select-wrap" : "select-wrap"}>
-											<span onClick={(e) => {e.stopPropagation(); this.setState({selectOpened3: false, selecte3: 'CATEGORY'})}}>CATEGORY</span>
-											<span onClick={(e) => {e.stopPropagation(); this.setState({selectOpened3: false, selected3: 'REGION'})}}>REGION</span>
+											<span onClick={(e) => {e.stopPropagation(); this.setState({selectOpened3: false, selecte3: 'Category'})}}>Category</span>
+											<span onClick={(e) => {e.stopPropagation(); this.setState({selectOpened3: false, selected3: 'Region'})}}>Region</span>
 										</div>
 									</div>
 								</div>
 								<div className="select-qty">
 									<div className="label">SUBCATEGORY / COUNTRY</div>
 
-									<div id="select4" className="select" onClick={() => {this.setState({selectOpened4: true})}}>
+									<div id="select4" className={this.state.selectOpened4 ? 'select open' : 'select'} onClick={() => {this.setState({selectOpened4: true})}}>
 										<span id="select41">{this.state.selected4}</span>
 										<img src="./assets/img/tringle-arrow.svg" alt="tringle"/>
 
@@ -191,11 +202,11 @@ export default class Residetial extends Component {
 								<div className="select-qty">
 									<div className="label">QUANTITY</div>
 
-									<div className="qty-container">
-										<div className="qty-input">
-											<div onClick={() => {this.decrease()}} onMouseDown={() => {this.startDecrease()}} onMouseUp={() => {clearInterval(this.state.decrease) }} className="control"><img src="./assets/img/minus.svg" alt="minus"/></div>
-											<input type="text" value={this.state.qty} onChange={evt => this.updateInputValue(evt)}/>
-											<div onClick={() => {this.increase()}} onMouseDown={() => {this.startIncrease()}} onMouseUp={() => {clearInterval(this.state.increase) }} className="control"><img src="./assets/img/plus.svg" alt="plus"/></div>
+									<div className={this.state.push ? "push qty-container" : "qty-container"}>
+										<div className={this.state.qtuTyping ? "typing qty-input" : "qty-input"}>
+											<div onClick={() => {this.decrease()}} onMouseDown={() => {this.startDecrease()}} onMouseUp={() => {clearInterval(this.state.decrease); this.setState({push: false}) }} className="control"><img src="./assets/img/minus.svg" alt="minus"/></div>
+											<input type="text" value={this.state.qty} onFocus={() => {this.setState({qtuTyping: true})}} onBlur={() => {this.setState({qtuTyping: false})}} onChange={evt => this.updateInputValue(evt)}/>
+											<div onClick={() => {this.increase()}} onMouseDown={() => {this.startIncrease()}} onMouseUp={() => {clearInterval(this.state.increase); this.setState({push: false}) }} className="control"><img src="./assets/img/plus.svg" alt="plus"/></div>
 										</div>
 
 										<div className="main-btn active">GENERATE</div>
@@ -240,24 +251,42 @@ export default class Residetial extends Component {
 								<div className="chart-wrap">
 									<img className="bg" src="./assets/img/chart-bg.png" alt=""/>
 
-									<span style={this.state.tooltipTop}>0.1 / 2 GB</span>
+									<span class={this.state.tooltipClass} style={this.state.tooltipTop}>0.1 / 2 GB</span>
+
+									<ul className="area-chart line">
+										<li onMouseLeave={() => {this.hideTooltip('12%')}} onMouseEnter={() => {this.showTooltip('13%', '35px', 0)}}></li>
+										<li onMouseLeave={() => {this.hideTooltip('15%')}} onMouseEnter={() => {this.showTooltip('15%', '35px', 1)}}></li>
+										<li onMouseLeave={() => {this.hideTooltip('15%')}} onMouseEnter={() => {this.showTooltip('15%', '59px', 2)}}></li>
+										<li onMouseLeave={() => {this.hideTooltip('18%')}} onMouseEnter={() => {this.showTooltip('18%', '83px', 3)}}></li>
+										<li onMouseLeave={() => {this.hideTooltip('28%')}} onMouseEnter={() => {this.showTooltip('25%', '107px', 4)}}></li>
+										<li onMouseLeave={() => {this.hideTooltip('30%')}} onMouseEnter={() => {this.showTooltip('30%', '131px', 5)}}></li>
+										<li onMouseLeave={() => {this.hideTooltip('37%')}} onMouseEnter={() => {this.showTooltip('37%', '155px', 6)}}></li>
+										<li onMouseLeave={() => {this.hideTooltip('43%')}} onMouseEnter={() => {this.showTooltip('43%', '178px', 7)}}></li>
+										<li onMouseLeave={() => {this.hideTooltip('55%')}} onMouseEnter={() => {this.showTooltip('50%', '202px', 8)}}></li>
+										<li onMouseLeave={() => {this.hideTooltip('60%')}} onMouseEnter={() => {this.showTooltip('58%', '226px', 9)}}></li>
+										<li onMouseLeave={() => {this.hideTooltip('65%')}} onMouseEnter={() => {this.showTooltip('65%', '250px', 10)}}></li>
+										<li onMouseLeave={() => {this.hideTooltip('72%')}} onMouseEnter={() => {this.showTooltip('72%', '274px', 11)}}></li>
+										<li onMouseLeave={() => {this.hideTooltip('77%')}} onMouseEnter={() => {this.showTooltip('77%', '298px', 12)}}></li>
+										<li onMouseLeave={() => {this.hideTooltip('83%')}} onMouseEnter={() => {this.showTooltip('83%', '322px', 13)}}></li>
+										<li onMouseLeave={() => {this.hideTooltip('84%')}} onMouseEnter={() => {this.showTooltip('84%', '346px', 14)}}></li>
+									</ul>
 
 									<ul className="area-chart">
-										<li onMouseLeave={() => {this.hideTooltip('12%')}} onMouseEnter={() => {this.showTooltip('12%', 0)}}></li>
-										<li onMouseLeave={() => {this.hideTooltip('15%')}} onMouseEnter={() => {this.showTooltip('15%', 1)}}></li>
-										<li onMouseLeave={() => {this.hideTooltip('15%')}} onMouseEnter={() => {this.showTooltip('15%', 2)}}></li>
-										<li onMouseLeave={() => {this.hideTooltip('18%')}} onMouseEnter={() => {this.showTooltip('18%', 3)}}></li>
-										<li onMouseLeave={() => {this.hideTooltip('28%')}} onMouseEnter={() => {this.showTooltip('25%', 4)}}></li>
-										<li onMouseLeave={() => {this.hideTooltip('30%')}} onMouseEnter={() => {this.showTooltip('30%', 5)}}></li>
-										<li onMouseLeave={() => {this.hideTooltip('37%')}} onMouseEnter={() => {this.showTooltip('37%', 6)}}></li>
-										<li onMouseLeave={() => {this.hideTooltip('43%')}} onMouseEnter={() => {this.showTooltip('43%', 7)}}></li>
-										<li onMouseLeave={() => {this.hideTooltip('55%')}} onMouseEnter={() => {this.showTooltip('50%', 8)}}></li>
-										<li onMouseLeave={() => {this.hideTooltip('60%')}} onMouseEnter={() => {this.showTooltip('58%', 9)}}></li>
-										<li onMouseLeave={() => {this.hideTooltip('65%')}} onMouseEnter={() => {this.showTooltip('65%', 10)}}></li>
-										<li onMouseLeave={() => {this.hideTooltip('72%')}} onMouseEnter={() => {this.showTooltip('72%', 11)}}></li>
-										<li onMouseLeave={() => {this.hideTooltip('77%')}} onMouseEnter={() => {this.showTooltip('77%', 12)}}></li>
-										<li onMouseLeave={() => {this.hideTooltip('83%')}} onMouseEnter={() => {this.showTooltip('83%', 13)}}></li>
-										<li onMouseLeave={() => {this.hideTooltip('84%')}} onMouseEnter={() => {this.showTooltip('84%', 14)}}></li>
+										<li onMouseLeave={() => {this.hideTooltip('12%')}} onMouseEnter={() => {this.showTooltip('11.5%', '35px', 0)}}></li>
+										<li onMouseLeave={() => {this.hideTooltip('15%')}} onMouseEnter={() => {this.showTooltip('14%', '35px', 1)}}></li>
+										<li onMouseLeave={() => {this.hideTooltip('15%')}} onMouseEnter={() => {this.showTooltip('15%', '59px', 2)}}></li>
+										<li onMouseLeave={() => {this.hideTooltip('18%')}} onMouseEnter={() => {this.showTooltip('17%', '83px', 3)}}></li>
+										<li onMouseLeave={() => {this.hideTooltip('28%')}} onMouseEnter={() => {this.showTooltip('22%', '107px', 4)}}></li>
+										<li onMouseLeave={() => {this.hideTooltip('30%')}} onMouseEnter={() => {this.showTooltip('28%', '131px', 5)}}></li>
+										<li onMouseLeave={() => {this.hideTooltip('37%')}} onMouseEnter={() => {this.showTooltip('34%', '155px', 6)}}></li>
+										<li onMouseLeave={() => {this.hideTooltip('43%')}} onMouseEnter={() => {this.showTooltip('40%', '178px', 7)}}></li>
+										<li onMouseLeave={() => {this.hideTooltip('55%')}} onMouseEnter={() => {this.showTooltip('46.5%', '202px', 8)}}></li>
+										<li onMouseLeave={() => {this.hideTooltip('60%')}} onMouseEnter={() => {this.showTooltip('55%', '226px', 9)}}></li>
+										<li onMouseLeave={() => {this.hideTooltip('65%')}} onMouseEnter={() => {this.showTooltip('62.5%', '250px', 10)}}></li>
+										<li onMouseLeave={() => {this.hideTooltip('72%')}} onMouseEnter={() => {this.showTooltip('68.5%', '274px', 11)}}></li>
+										<li onMouseLeave={() => {this.hideTooltip('77%')}} onMouseEnter={() => {this.showTooltip('74.5%', '298px', 12)}}></li>
+										<li onMouseLeave={() => {this.hideTooltip('83%')}} onMouseEnter={() => {this.showTooltip('80%', '322px', 13)}}></li>
+										<li onMouseLeave={() => {this.hideTooltip('84%')}} onMouseEnter={() => {this.showTooltip('84%', '346px', 14)}}></li>
 									</ul>
 								</div>
 							</div>
@@ -378,10 +407,10 @@ export default class Residetial extends Component {
 								<p>privatepool.axiom.io:15432:DbboLCMA:ghadaHJNQJLdasdNDADkgnagwnKLIOQdalksQDAAAA</p>
 								<p>privatepool.axiom.io:15432:DbboLCMA:ghadaHJNQJLdasdNDADkgnagwnKLIOQdalksQDAAAA</p>
 								</div>
-							</div> : <div className="list"></div>}
+							</div> : <div className="list-wrapp"><div className="list"></div></div>}
 
 							<div className="actions">
-								<div className="main-btn" onClick={() => {this.setState({isClear: true})}}>CLEAR</div>
+								<div className={this.state.isClear ? "cleared main-btn" : "main-btn"} onClick={() => {this.setState({isClear: true})}}>CLEAR</div>
 
 								<div className="btn-wrap">
 									<div className="main-btn active" onClick={() => {this.copy()}}>COPY</div>
@@ -399,13 +428,13 @@ export default class Residetial extends Component {
 							<div className="select-qty">
 								<div className="label">PROXY PLAN</div>
 
-								<div id="select" className="select" onClick={() => {this.setState({selectOpened: true})}}>
-									<span id="select11">{this.state.selected}</span>
+								<div id="select" className={this.state.selectOpened ? 'select open' : 'select'} onClick={() => {this.setState({selectOpened: true})}}>
+									<span id="select11">AXIOM Private Pool - {this.state.selected}</span>
 									<img src="./assets/img/tringle-arrow.svg" alt="tringle"/>
 
 									<div className={this.state.selectOpened ? "opened select-wrap" : "select-wrap"}>
-										<span onClick={(e) => {e.stopPropagation(); this.setState({selectOpened: false, selected: 'AXIOM Private Pool - 2GB - $50.00'})}}>2GB - $50.00</span>
-										<span onClick={(e) => {e.stopPropagation(); this.setState({selectOpened: false, selected: 'AXIOM Private Pool - 4GB - $100.00'})}}>4GB - $100.00</span>
+										<span onClick={(e) => {e.stopPropagation(); this.setState({selectOpened: false, selected: '2GB - $50.00'})}}>AXIOM Private Pool - 2GB - $50.00</span>
+										<span onClick={(e) => {e.stopPropagation(); this.setState({selectOpened: false, selected: '4GB - $100.00'})}}>AXIOM Private Pool - 4GB - $100.00</span>
 									</div>
 								</div>
 							</div>
