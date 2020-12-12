@@ -20,9 +20,9 @@ export default class ISP extends Component {
 
 	componentDidMount(){
 		if(this.props.match.params.type === 'ips'){
-			this.setState({premium: true});
-		}else{
 			this.setState({premium: false});
+		}else{
+			this.setState({premium: true});
 		}
 
 		let self = this,
