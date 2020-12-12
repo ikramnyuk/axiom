@@ -6,7 +6,7 @@ export default class ISP extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			premium: true,
+			premium: false,
 			selectOpened3: false,
 			selected3: '25 Proxies - $75.00',
 			selectOpened: false,
