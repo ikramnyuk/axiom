@@ -303,6 +303,16 @@ a{
     z-index: 10;
 }
 
+.refund-wrap{
+    .main-wrap{
+        min-height: calc(100vh - 397px);
+    }
+
+    .main-footer{
+        margin-top: 0;
+    }
+}
+
 .select{
     background-color: #2C2E34;
     cursor: pointer;
@@ -700,6 +710,7 @@ a{
 
     .page-section .plans .plan-benefits .benefit{
         width: 50%;
+        padding-left: 15px!important;
     }
 
     .page-section .plans .plan-benefits span{

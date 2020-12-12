@@ -1,11 +1,18 @@
 import React, { Component } from 'react'
 
+import Header from '../../../components/Header';
+import Footer from '../../../components/Footer';
+
 import './style.scss';
 
 export default class Privacy extends Component {
 	render () {
 		return (
-			<div className="page main-container">
+			<div>
+                <Header/>
+                
+                <div className="main-wrap">
+					<div className="page main-container">
                 <div className="privacy">
 					<div className="left">
 						<div className="label">
@@ -238,6 +245,10 @@ concerning any matter relating to it, you may send an email to support@axiomtech
 					</div>
 				</div>
             </div>
+				</div>
+
+				<Footer />
+			</div>
 		)
 	}
 }

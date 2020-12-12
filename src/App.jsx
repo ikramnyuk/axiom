@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import { Route, Switch, Redirect, withRouter } from "react-router-dom"
 
-import Footer from './components/Footer';
+import Privacy from './views/Landing/Privacy';
+import Refund from './views/Landing/Refund';
 import Landing from './views/Landing';
-import Dashboard from './views/Dashboard/';
+import Dashboard from './views/Dashboard';
 
 class App extends Component {
 	render() {
@@ -13,11 +14,11 @@ class App extends Component {
 			<div className="App">
 				<Switch>
 					<Route history={history} path='/home' component={Landing} />
+					<Route history={history} path='/privacy' component={Privacy} />
+					<Route history={history} path='/refund' component={Refund} />
 					<Route history={history} path='/dashboard' component={Dashboard} />
 					<Redirect to='/home'/>
 				</Switch>
-
-				<Footer history={history}/>
 			</div>
 		);
 	}

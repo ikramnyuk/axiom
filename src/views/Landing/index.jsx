@@ -2,9 +2,8 @@ import React, { Component } from 'react';
 import { Route, Switch, withRouter } from "react-router-dom"
 
 import Header from '../../components/Header';
+import Footer from '../../components/Footer';
 import Home from './Home';
-import Privacy from './Privacy';
-import Refund from './Refund';
 
 class Landing extends Component {
 	render() {
@@ -12,15 +11,13 @@ class Landing extends Component {
 
 		return (
 			<div>
-                <Header history={history}/>
+                <Header isHome={true} />
                 
                 <div className="main-wrap">
-                    <Switch>
-                        <Route history={history} path='/' component={Home} />
-                        <Route history={history} path='/privacy' component={Privacy} />
-                        <Route history={history} path='/refund' component={Refund} />
-                    </Switch>
+                    <Home history={history}/>
                 </div>
+
+                <Footer isHome={true}/>
             </div>
 		);
 	}

@@ -1,9 +1,16 @@
 import React, { Component } from 'react';
 
+import Header from '../../../components/Header';
+import Footer from '../../../components/Footer';
+
 export default class Refund extends Component {
 	render () {
 		return (
-			<div className="page main-container">
+			<div className="refund-wrap">
+                <Header/>
+                
+                <div className="main-wrap">
+					<div className="page main-container">
                 <div className="privacy">
 					<div className="left">
 						<div className="label">
@@ -21,6 +28,10 @@ export default class Refund extends Component {
 					</div>
 				</div>
             </div>
+				</div>
+
+				<Footer />
+			</div>
 		)
 	}
 }

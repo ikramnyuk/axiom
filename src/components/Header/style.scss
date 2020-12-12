@@ -177,9 +177,9 @@
 
     polygon, path {
         stroke: #f6f6f6;
-        stroke-dasharray: 500;
-        stroke-dashoffset: 500;
-        animation: draw 2.5s linear forwards, color 1s linear 3s forwards;
+        stroke-dasharray: 800;
+        stroke-dashoffset: 800;
+        animation: draw 2.5s linear forwards, color 1s linear 2s forwards;
     }
        
     @keyframes draw {

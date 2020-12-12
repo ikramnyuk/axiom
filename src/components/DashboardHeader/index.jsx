@@ -17,7 +17,7 @@ export default class DashboardHeader extends Component {
 	componentDidMount(){
 		setTimeout(() => {
 			this.setState({init: false});
-		}, 5000);
+		}, 500000);
 
 		let self = this,
 			element = document.querySelector('#select8'),
@@ -81,7 +81,7 @@ export default class DashboardHeader extends Component {
 									<Link to="/dashboard">
 										My plans
 									</Link>
-									<Link to="/">
+									<Link to="/home">
 										Logout
 									</Link>
 								</div>

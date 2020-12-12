@@ -79,22 +79,8 @@ export default class ISP extends Component {
 						<div className="sublabel">Select the Data Center collection you would like to view in the dashboard.</div>
 
 						<div className="actions">
-							<div id="select" onClick={() => {this.setState({selectOpened: true, premium: true})}} className={this.state.premium ? "active main-btn" : "hover main-btn"}>
-								<span id="select11">{this.state.selected} ISP DC <br/> PROXIES</span> {this.state.premium ? <img className={this.state.selectOpened ? "img-opened" : ""} src="./assets/img/tringle-dark-arrow.svg" alt="tringle"/> : <img src="./assets/img/tringle-arrow.svg" alt="tringle"/>}
-								
-								<div className={this.state.selectOpened ? "opened select-wrap" : "select-wrap"}>
-									<span onClick={(e) => {e.stopPropagation(); this.setState({selectOpened: false, selected: 'US'})}}>US ISP DC PROXIES</span>
-									<span onClick={(e) => {e.stopPropagation(); this.setState({selectOpened: false, selected: 'EU'})}}>EU ISP DC PROXIES</span>
-								</div>
-							</div>
-							<div id="select2" onClick={() => {this.setState({selectOpened2: true, premium: false})}} className={!this.state.premium ? "active main-btn" : "hover main-btn"}>
-								<span id="select21">{this.state.selected2} PREMIUM DC <br/> PROXIES</span> {!this.state.premium ? <img className={this.state.selectOpened2 ? "img-opened" : ""} src="./assets/img/tringle-dark-arrow.svg" alt="tringle"/> : <img src="./assets/img/tringle-arrow.svg" alt="tringle"/>}
-								
-								<div className={this.state.selectOpened2 ? "opened select-wrap" : "select-wrap"}>
-									<span onClick={(e) => {e.stopPropagation(); this.setState({selectOpened2: false, selected2: 'US'})}}>US PREMIUM DC PROXIES</span>
-									<span onClick={(e) => {e.stopPropagation(); this.setState({selectOpened2: false, selected2: 'EU'})}}>EU PREMIUM DC PROXIES</span>
-								</div>
-							</div>
+							<div onClick={() => {this.setState({premium: false})}} className={!this.state.premium ? "main-btn active" : "main-btn"}>ISP DATA CENTER</div>
+							<div onClick={() => {this.setState({premium: true})}} className={this.state.premium ? "main-btn active" : "main-btn"}>PREMIUM DATA CENTER</div>
 						</div>
 					</div>
 

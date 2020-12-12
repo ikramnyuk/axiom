@@ -34,8 +34,8 @@ export default class Header extends Component {
 				
 				<nav className="main-header">
 					<div className="main-header-wrap main-container">
-						<div className="menu">
-							<Link to="home" className="logo-link">
+						{this.props.isHome ? <div className="menu">
+							<Link to="/home" className="logo-link">
 								<img src="./assets/img/logo.svg" alt=""/>
 							</Link>
 
@@ -45,7 +45,20 @@ export default class Header extends Component {
 							<Link to="home#sitelist">SITELIST</Link>
 							<Link to="home#faq">FAQ</Link>
 							<Link to="home#contact">CONTACT</Link>
-						</div>
+						</div> : 
+							<div className="menu">
+								<Link to="/home" className="logo-link">
+									<img src="./assets/img/logo.svg" alt=""/>
+								</Link>
+
+								<Link to="/#about">ABOUT</Link>
+								<Link to="/#features">FEATURES</Link>
+								<Link to="/#products">PRODUCTS</Link>
+								<Link to="/#sitelist">SITELIST</Link>
+								<Link to="/#faq">FAQ</Link>
+								<Link to="/#contact">CONTACT</Link>
+							</div>
+						}
 
 						<div className="main-btn"><Link to="/dashboard">Dashboard</Link></div>
 
@@ -62,14 +75,21 @@ export default class Header extends Component {
 							<img src="./assets/img/mobile-logo.svg" alt=""/>
 						</Link>
 
-						<div className="menu">
+						{this.props.isHome ? <div className="menu">
 							<Link to="home#about">About</Link>
 							<Link to="home#features">Features</Link>
 							<Link to="home#products">Products</Link>
 							<Link to="home#sitelist">Sitelist</Link>
 							<Link to="home#faq">FAQ</Link>
 							<Link to="home#contact">Contact</Link>
-						</div>
+						</div> : <div className="menu">
+							<Link to="/#about">About</Link>
+							<Link to="/#features">Features</Link>
+							<Link to="/#products">Products</Link>
+							<Link to="/#sitelist">Sitelist</Link>
+							<Link to="/#faq">FAQ</Link>
+							<Link to="/#contact">Contact</Link>
+						</div>}
 
 						<div className="menu"><Link to="/dashboard">Dashboard</Link></div>
 					</div>
