@@ -104,8 +104,7 @@ export default class DashboardHeader extends Component {
 						<div className="menu">
 							<Link to="/dashboard">My Plans</Link>
 							<Link to="/dashboard/residential">Private Residentials</Link>
-							<Link to="/dashboard/data-center/ips">ISP Data Center</Link>
-							<Link to="/dashboard/data-center/premium">Premium Data Center</Link>
+							<Link to="/dashboard/data-center/ips">Data Center</Link>
 							<Link to="/dashboard/servers">Bare Metal Servers</Link>
 							<Link to="/dashboard/purchase">Purchase</Link>
 						</div>
