@@ -16,7 +16,7 @@ export default class Header extends Component {
 	componentDidMount(){
 		setTimeout(() => {
 			this.setState({init: false});
-		}, 5000);
+		}, 4000);
 	}
 
 	toggleMobile(status){

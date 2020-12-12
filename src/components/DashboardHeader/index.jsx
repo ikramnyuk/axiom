@@ -17,7 +17,7 @@ export default class DashboardHeader extends Component {
 	componentDidMount(){
 		setTimeout(() => {
 			this.setState({init: false});
-		}, 500000);
+		}, 4000);
 
 		let self = this,
 			element = document.querySelector('#select8'),
