@@ -12,7 +12,8 @@ export default class Residetial extends Component {
 			increase: false,
 			isClear: false,
 			qty: 0,
-			tooltipTop: {bottom: '-200px', opacity: '0'},
+			tooltipTop: {bottom: '200%', opacity: '0'},
+			tooltipTopDot: {bottom: '200%', opacity: '0'},
 			selectOpened: false,
 			selected: '2GB - $50.00',
 			selectOpened2: false,
@@ -99,11 +100,11 @@ export default class Residetial extends Component {
 			this.setState({ tooltipClass: 'right-tip'})
 		}
 
-		this.setState({ tooltipTop: {bottom: "calc(" + top + " + 8px)", left: left, opacity: 1} })
+		this.setState({ tooltipTop: {bottom: "calc(" + top + " + 8px)", left: left, opacity: 1}, tooltipTopDot: {bottom: "calc(" + top + " - 7px)", left: left, opacity: 1} })
 	}
 
 	hideTooltip(index){
-		this.setState({ tooltipClass: '', tooltipTop: {bottom: "-200px", left: 0, opacity: 0} })
+		this.setState({ tooltipClass: '', tooltipTop: {bottom: "200%", left: 0, opacity: 0}, tooltipTopDot: {bottom: "200%", left: 0, opacity: 0} })
 	}
 
 	copy(){
@@ -251,24 +252,24 @@ export default class Residetial extends Component {
 								<div className="chart-wrap">
 									<img className="bg" src="./assets/img/chart-bg.png" alt=""/>
 
-									<span class={this.state.tooltipClass} style={this.state.tooltipTop}>0.1 / 2 GB</span>
+									<div className="dot" style={this.state.tooltipTopDot}></div>
 
 									<ul className="area-chart line">
-										<li onMouseLeave={() => {this.hideTooltip('12%')}} onMouseEnter={() => {this.showTooltip('13%', '35px', 0)}}></li>
-										<li onMouseLeave={() => {this.hideTooltip('15%')}} onMouseEnter={() => {this.showTooltip('15%', '35px', 1)}}></li>
-										<li onMouseLeave={() => {this.hideTooltip('15%')}} onMouseEnter={() => {this.showTooltip('15%', '59px', 2)}}></li>
-										<li onMouseLeave={() => {this.hideTooltip('18%')}} onMouseEnter={() => {this.showTooltip('18%', '83px', 3)}}></li>
-										<li onMouseLeave={() => {this.hideTooltip('28%')}} onMouseEnter={() => {this.showTooltip('25%', '107px', 4)}}></li>
-										<li onMouseLeave={() => {this.hideTooltip('30%')}} onMouseEnter={() => {this.showTooltip('30%', '131px', 5)}}></li>
-										<li onMouseLeave={() => {this.hideTooltip('37%')}} onMouseEnter={() => {this.showTooltip('37%', '155px', 6)}}></li>
-										<li onMouseLeave={() => {this.hideTooltip('43%')}} onMouseEnter={() => {this.showTooltip('43%', '178px', 7)}}></li>
-										<li onMouseLeave={() => {this.hideTooltip('55%')}} onMouseEnter={() => {this.showTooltip('50%', '202px', 8)}}></li>
-										<li onMouseLeave={() => {this.hideTooltip('60%')}} onMouseEnter={() => {this.showTooltip('58%', '226px', 9)}}></li>
-										<li onMouseLeave={() => {this.hideTooltip('65%')}} onMouseEnter={() => {this.showTooltip('65%', '250px', 10)}}></li>
-										<li onMouseLeave={() => {this.hideTooltip('72%')}} onMouseEnter={() => {this.showTooltip('72%', '274px', 11)}}></li>
-										<li onMouseLeave={() => {this.hideTooltip('77%')}} onMouseEnter={() => {this.showTooltip('77%', '298px', 12)}}></li>
-										<li onMouseLeave={() => {this.hideTooltip('83%')}} onMouseEnter={() => {this.showTooltip('83%', '322px', 13)}}></li>
-										<li onMouseLeave={() => {this.hideTooltip('84%')}} onMouseEnter={() => {this.showTooltip('84%', '346px', 14)}}></li>
+										<li></li>
+										<li></li>
+										<li></li>
+										<li></li>
+										<li></li>
+										<li></li>
+										<li></li>
+										<li></li>
+										<li></li>
+										<li></li>
+										<li></li>
+										<li></li>
+										<li></li>
+										<li></li>
+										<li></li>
 									</ul>
 
 									<ul className="area-chart">
@@ -288,6 +289,8 @@ export default class Residetial extends Component {
 										<li onMouseLeave={() => {this.hideTooltip('83%')}} onMouseEnter={() => {this.showTooltip('80%', '322px', 13)}}></li>
 										<li onMouseLeave={() => {this.hideTooltip('84%')}} onMouseEnter={() => {this.showTooltip('84%', '346px', 14)}}></li>
 									</ul>
+
+									<span class={this.state.tooltipClass} style={this.state.tooltipTop}>0.1 / 2 GB</span>
 								</div>
 							</div>
 						</div>
