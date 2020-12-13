@@ -76,7 +76,7 @@ export default class Dashboard extends Component {
 								<div className="welcome">Welcome,</div>
 								<div className="name">Cillysen#0001</div>
 
-								<div className="main-btn active invite">DISCORD INVITE</div>
+								<a href="http://discord.gg/FzkZMAD" target="blank" className="main-btn active invite">DISCORD INVITE</a>
 							</div>
 						</div>
 					</div>
