@@ -279,6 +279,7 @@
                     color: $secondary_text;
                     font-family: "InterUIMedium";
                     transition: .2s;
+                    z-index: 20;
                     
                     &:after{
                         content: '';
@@ -299,11 +300,6 @@
                     &.left-tip:before{
                         left: 21px;
                     }
-
-                    // &.right-tip:after{
-                    //     left: auto;
-                    //     right: 10px;
-                    // }
 
                     &:before{
                         content: '';
